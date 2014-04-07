@@ -12,8 +12,8 @@
 
 &lt;blockquote&gt;
   &lt;p&gt;The emacs setup has somewaht stepped into &amp;#8220;package management software&amp;#8221; era. There are a few 
-very good package management package there. I am using &lt;a href=&quot;https://github.com/dimitri/el-get&quot;&gt;el-get&lt;/a&gt;
-I suggest everyone to have a try it.&lt;/p&gt;
+very good package management package there. I am using &lt;a href=&quot;https://github.com/dimitri/el-get&quot;&gt;el-get&lt;/a&gt;.
+I suggest everyone to have a try on it.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;how-to-use-auto-complete-to-show-the-completion-result-of-semantics&quot;&gt;1 How to use Auto-complete to show the completion result of semantics.&lt;/h2&gt;
