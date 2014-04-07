@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<!-- mathjax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<title>Some Tips for Emacs</title>
+
+<meta name="author" content="Honglin">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="http://yuhonglin.github.io/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://yuhonglin.github.io/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://yuhonglin.github.io/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="http://yuhonglin.github.io/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="http://yuhonglin.github.io/feed.xml">
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/yuhonglin">
+		      <i class="fa fa-github"></i>
+		    </a>
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="http://twitter.com/yuhonglin1986">
+		      <i class="fa fa-twitter"></i>
+		    </a>
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:yuhonglin1986@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+			<a class="navbar-brand" href="http://yuhonglin.github.io/">
+				<img src="http://www.gravatar.com/avatar/d5585155115642b123d2d3418809f425" class="img-circle" />
+				Honglin Yu
+			</a>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="http://yuhonglin.github.io/">Home</a></li>
+			  <li><a href="http://yuhonglin.github.io/categories.html">Categories</a></li>
+  			  <li><a href="http://yuhonglin.github.io/tags.html">Tags</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://yuhonglin.github.io/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="http://yuhonglin.github.io/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+            <li><a href="http://yuhonglin.github.io/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="http://yuhonglin.github.io/">
+		<img src="http://www.gravatar.com/avatar/d5585155115642b123d2d3418809f425?s=150" class="img-circle" />
+	</a>
+	<h3 class="title">
+        <a href="http://yuhonglin.github.io/">Honglin Yu</a>
+    </h3>
+</header>
+
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://github.com/yuhonglin">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://twitter.com/yuhonglin1986">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:yuhonglin1986@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="http://yuhonglin.github.io/feed.xml">
+				<i class="fa fa-rss fa-lg"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+
+	
+
+<! -- sidebar.html end -->
+
+		</div>
+
+
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Some Tips for Emacs </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   June 
+	   4th,
+	   
+	   2013
+	 </span>
+	  <div class="article_body">
+	  <p>This file includes some tips for configuring emacs.</p>
+
+<blockquote>
+  <p>The emacs setup has somewaht stepped into &#8220;package management software&#8221; era. There are a few 
+very good package management package there. I am using <a href="https://github.com/dimitri/el-get">el-get</a>
+I suggest everyone to have a try it.</p>
+</blockquote>
+
+<h2 id="how-to-use-auto-complete-to-show-the-completion-result-of-semantics">1 How to use Auto-complete to show the completion result of semantics.</h2>
+
+<p>Semantic is a powerful tool to do C/C++ parsing. But it uses the right-click menu to show completion which I think is not beautiful. Auto-complete&#8217;s menu is much more elegant, so can we use Auto-complete&#8217;s menu to show Semantic&#8217;s result? The answer is yes. Auto-complete&#8217;s author already thought about this and there is a function called ac-complete-semantic will do this for us automatically. Just do the following:
+Install both of the two
+add (define-key ac-mode-map (kbd &#8220;M-l&#8221;) &#8216;ac-complete-semantic) to a .emacs.
+Then everything works.</p>
+
+<h2 id="use-iswitchb-to-switch-buffers">2 Use iswitchb to switch buffers.</h2>
+
+<p>I suggest to open iswitchb-mode all the time. Just insert</p>
+
+<div class="highlight"><pre><code class="python"> 
+  <span class="p">(</span><span class="n">iswitchb</span><span class="o">-</span><span class="n">mode</span><span class="p">)</span>
+</code></pre></div>
+
+<p>into your <code>.emacs</code> and then you will see this is much much better than the default one.</p>
+
+<h2 id="use-doxymacs-to-insert-doxygen-like-comments">3 Use doxymacs to insert doxygen-like comments</h2>
+<p>First, install doxymacs (e.g. in Ubuntu):</p>
+
+<div class="highlight"><pre><code class="bash"> 
+   sudo apt-get install doxymacs
+</code></pre></div>
+
+<p>Add</p>
+
+<div class="highlight"><pre><code class="python"> 
+  <span class="p">(</span><span class="n">require</span> <span class="s">&#39;doxymacs)</span>
+  <span class="p">(</span><span class="n">add</span><span class="o">-</span><span class="n">hook</span> <span class="s">&#39;c-mode-common-hook &#39;</span><span class="n">doxymacs</span><span class="o">-</span><span class="n">mode</span><span class="p">)</span>
+</code></pre></div>
+
+<p>to the <code>.emacs</code> file. Then we can insert doxygen-like comments by keyboard shotcuts.</p>
+
+<h2 id="auto-complete-settings">4 Auto-complete settings</h2>
+
+<p>This section just records some auto-complete setting.</p>
+
+<p>1) Set the number of characters that will trigger the auto-complete</p>
+
+<div class="highlight"><pre><code class="python"> 
+  <span class="p">(</span><span class="n">setq</span> <span class="n">ac</span><span class="o">-</span><span class="n">auto</span><span class="o">-</span><span class="n">start</span> <span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="semantic-settings">5 Semantic settings</h2>
+
+<blockquote>
+  <p>I used to use semantics to complete c/c++ code in emacs but I found it does not work in a lot of cases. Recently, I found another extensions based on clang and llvm which performs very well (I only tried <a href="https://github.com/Sarcasm/irony-mode">this one</a>). It works perfectly as long as your code is correct in syntax. To install it, first you have to install clang. If you are using ubuntu, just using the command:
+<code>sudo apt-get install clang</code>. Apt can automatically select relevant llvm libs to install. Then just follow the readme files of the extension to config the .emacs file.
+Until now, the only drawback I found of this tool is that: compared with semantics/cedet, it does not include code navigation functions. So you can still use semantics for the code jumping functions.</p>
+</blockquote>
+
+<p>This section just records some Semantic setting.
+Set the search directory, <a href="http://emacser.com/cedet.htm"><em>Reference</em></a></p>
+
+<div class="highlight"><pre><code class="python"> 
+<span class="p">(</span><span class="n">defconst</span> <span class="n">cedet</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">include</span><span class="o">-</span><span class="n">dirs</span>
+  <span class="p">(</span><span class="nb">list</span> <span class="s">&quot;..&quot;</span> <span class="s">&quot;../include&quot;</span> <span class="s">&quot;../inc&quot;</span> <span class="s">&quot;../common&quot;</span> <span class="s">&quot;../public&quot;</span>
+        <span class="s">&quot;../..&quot;</span> <span class="s">&quot;../../include&quot;</span> <span class="s">&quot;../../inc&quot;</span> <span class="s">&quot;../../common&quot;</span> <span class="s">&quot;../../public&quot;</span> <span class="s">&quot;/data0/local/include/opencv/&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="n">defconst</span> <span class="n">cedet</span><span class="o">-</span><span class="n">win32</span><span class="o">-</span><span class="n">include</span><span class="o">-</span><span class="n">dirs</span>
+  <span class="p">(</span><span class="nb">list</span> <span class="s">&quot;C:/MinGW/include&quot;</span>
+        <span class="s">&quot;C:/MinGW/include/c++/3.4.5&quot;</span>
+        <span class="s">&quot;C:/MinGW/include/c++/3.4.5/mingw32&quot;</span>
+        <span class="s">&quot;C:/MinGW/include/c++/3.4.5/backward&quot;</span>
+        <span class="s">&quot;C:/MinGW/lib/gcc/mingw32/3.4.5/include&quot;</span>
+        <span class="s">&quot;C:/Program Files/Microsoft Visual Studio/VC98/MFC/Include&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="n">require</span> <span class="s">&#39;semantic-c nil &#39;</span><span class="n">noerror</span><span class="p">)</span>
+<span class="p">(</span><span class="n">let</span> <span class="p">((</span><span class="n">include</span><span class="o">-</span><span class="n">dirs</span> <span class="n">cedet</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">include</span><span class="o">-</span><span class="n">dirs</span><span class="p">))</span>
+  <span class="p">(</span><span class="n">when</span> <span class="p">(</span><span class="n">eq</span> <span class="n">system</span><span class="o">-</span><span class="nb">type</span> <span class="s">&#39;windows-nt)</span>
+    <span class="p">(</span><span class="n">setq</span> <span class="n">include</span><span class="o">-</span><span class="n">dirs</span> <span class="p">(</span><span class="n">append</span> <span class="n">include</span><span class="o">-</span><span class="n">dirs</span> <span class="n">cedet</span><span class="o">-</span><span class="n">win32</span><span class="o">-</span><span class="n">include</span><span class="o">-</span><span class="n">dirs</span><span class="p">)))</span>
+  <span class="p">(</span><span class="n">mapc</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+          <span class="p">(</span><span class="n">semantic</span><span class="o">-</span><span class="n">add</span><span class="o">-</span><span class="n">system</span><span class="o">-</span><span class="n">include</span> <span class="nb">dir</span> <span class="s">&#39;c++-mode)</span>
+          <span class="p">(</span><span class="n">semantic</span><span class="o">-</span><span class="n">add</span><span class="o">-</span><span class="n">system</span><span class="o">-</span><span class="n">include</span> <span class="nb">dir</span> <span class="s">&#39;c-mode))</span>
+        <span class="n">include</span><span class="o">-</span><span class="n">dirs</span><span class="p">))</span>
+</code></pre></div>
+
+<p>I use <code>[C-ret]</code> to jump into code and <code>[M-ret]</code> to jump back. <a href="http://emacser.com/cedet.htm"><em>Reference</em></a></p>
+
+<div class="highlight"><pre><code class="python"> 
+<span class="p">(</span><span class="k">global</span><span class="o">-</span><span class="nb">set</span><span class="o">-</span><span class="n">key</span> <span class="p">[</span><span class="n">C</span><span class="o">-</span><span class="k">return</span><span class="p">]</span> <span class="s">&#39;semantic-ia-fast-jump)</span>
+<span class="p">(</span><span class="k">global</span><span class="o">-</span><span class="nb">set</span><span class="o">-</span><span class="n">key</span> <span class="p">[</span><span class="n">M</span><span class="o">-</span><span class="k">return</span><span class="p">]</span>
+                <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+                  <span class="p">(</span><span class="n">interactive</span><span class="p">)</span>
+                  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="n">ring</span><span class="o">-</span><span class="n">empty</span><span class="o">-</span><span class="n">p</span> <span class="p">(</span><span class="n">oref</span> <span class="n">semantic</span><span class="o">-</span><span class="n">mru</span><span class="o">-</span><span class="n">bookmark</span><span class="o">-</span><span class="n">ring</span> <span class="n">ring</span><span class="p">))</span>
+                      <span class="p">(</span><span class="n">error</span> <span class="s">&quot;Semantic Bookmark ring is currently empty&quot;</span><span class="p">))</span>
+                  <span class="p">(</span><span class="n">let</span><span class="o">*</span> <span class="p">((</span><span class="n">ring</span> <span class="p">(</span><span class="n">oref</span> <span class="n">semantic</span><span class="o">-</span><span class="n">mru</span><span class="o">-</span><span class="n">bookmark</span><span class="o">-</span><span class="n">ring</span> <span class="n">ring</span><span class="p">))</span>
+                         <span class="p">(</span><span class="n">alist</span> <span class="p">(</span><span class="n">semantic</span><span class="o">-</span><span class="n">mrub</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">assoc</span><span class="o">-</span><span class="nb">list</span> <span class="n">ring</span><span class="p">))</span>
+                         <span class="p">(</span><span class="n">first</span> <span class="p">(</span><span class="n">cdr</span> <span class="p">(</span><span class="n">car</span> <span class="n">alist</span><span class="p">))))</span>
+                    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="n">semantic</span><span class="o">-</span><span class="n">equivalent</span><span class="o">-</span><span class="n">tag</span><span class="o">-</span><span class="n">p</span> <span class="p">(</span><span class="n">oref</span> <span class="n">first</span> <span class="n">tag</span><span class="p">)</span>
+                                                   <span class="p">(</span><span class="n">semantic</span><span class="o">-</span><span class="n">current</span><span class="o">-</span><span class="n">tag</span><span class="p">))</span>
+                        <span class="p">(</span><span class="n">setq</span> <span class="n">first</span> <span class="p">(</span><span class="n">cdr</span> <span class="p">(</span><span class="n">car</span> <span class="p">(</span><span class="n">cdr</span> <span class="n">alist</span><span class="p">)))))</span>
+                    <span class="p">(</span><span class="n">semantic</span><span class="o">-</span><span class="n">mrub</span><span class="o">-</span><span class="n">switch</span><span class="o">-</span><span class="n">tags</span> <span class="n">first</span><span class="p">))))</span>
+</code></pre></div>
+
+<h2 id="yasnippet">6 Yasnippet</h2>
+
+<p>There are a lot of good snippets on the Internet e.g. try <a href="https://github.com/AndreaCrotti/yasnippet-snippets/tree/master/c%2B%2B-mode"><em>this</em></a></p>
+
+<h2 id="solarized-color-theme">7 Solarized Color Theme</h2>
+
+<p>&#8220;Black-White&#8221; color theme is not suitable for long-time watching, try <a href="https://github.com/sellout/emacs-color-theme-solarized"><em>this</em></a></p>
+
+<h2 id="save-desktop">8 Save desktop</h2>
+
+<p>insert the following code into <code>.emacs</code> (MUST be at the END of the file):</p>
+
+<div class="highlight"><pre><code class="python"> 
+  <span class="p">(</span><span class="n">require</span> <span class="s">&#39;desktop)</span>
+  <span class="p">(</span><span class="n">desktop</span><span class="o">-</span><span class="n">save</span><span class="o">-</span><span class="n">mode</span> <span class="n">t</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="multi-shell">9 Multi-shell</h2>
+
+<p>I think the &#8220;shell&#8221; is the better than &#8220;multi-term&#8221;, &#8220;eshell&#8221;. But by default, one can only have one &#8220;shell&#8221;. The reason is that the buffer&#8217;s name is unique (always &#8220;<em>shell</em>&#8221;). If we change the shell&#8217;s name everytime after we created it. Then we can get multiple shells:</p>
+
+<div class="highlight"><pre><code class="python"> 
+<span class="p">(</span><span class="n">setq</span> <span class="n">shellnumber</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">defun</span> <span class="n">newshell</span> <span class="p">()</span> <span class="p">(</span><span class="n">interactive</span><span class="p">)</span> <span class="p">(</span><span class="n">progn</span> 
+            <span class="p">(</span><span class="n">shell</span><span class="p">)</span>
+            <span class="p">(</span><span class="n">rename</span><span class="o">-</span><span class="nb">buffer</span> <span class="p">(</span><span class="n">concat</span> <span class="p">(</span><span class="n">number</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">string</span> <span class="n">shellnumber</span><span class="p">)</span> <span class="s">&quot;shell&quot;</span><span class="p">))</span>
+            <span class="p">(</span><span class="n">setq</span> <span class="n">shellnumber</span> <span class="p">(</span><span class="o">+</span> <span class="n">shellnumber</span> <span class="mi">1</span><span class="p">))))</span>
+<span class="p">(</span><span class="k">global</span><span class="o">-</span><span class="nb">set</span><span class="o">-</span><span class="n">key</span> <span class="s">&quot;\C-x.&quot;</span> <span class="s">&#39;newshell)</span>
+</code></pre></div>
+
+<h2 id="auto-kill-completions-buffers">10 &#8220;Auto-kill&#8221; <code>*Completions*</code> buffers</h2>
+
+<p>The <code>*Completions*</code> buffers can be annoying sometime, using following code can &#8220;auto-kill&#8221; them after openning a file or after commiting a command in shell:</p>
+
+<div class="highlight"><pre><code class="python"> 
+<span class="p">;</span> <span class="k">for</span> <span class="nb">file</span> <span class="n">openning</span>
+<span class="p">(</span><span class="n">add</span><span class="o">-</span><span class="n">hook</span> <span class="s">&#39;minibuffer-exit-hook </span>
+      <span class="s">&#39;(lambda ()</span>
+         <span class="p">(</span><span class="n">let</span> <span class="p">((</span><span class="nb">buffer</span> <span class="s">&quot;*Completions*&quot;</span><span class="p">))</span>
+           <span class="p">(</span><span class="ow">and</span> <span class="p">(</span><span class="n">get</span><span class="o">-</span><span class="nb">buffer</span> <span class="nb">buffer</span><span class="p">)</span>
+            <span class="p">(</span><span class="n">kill</span><span class="o">-</span><span class="nb">buffer</span> <span class="nb">buffer</span><span class="p">)))))</span>
+<span class="p">;</span> <span class="k">for</span> <span class="n">shell</span> <span class="n">completion</span>
+<span class="p">(</span><span class="n">defun</span> <span class="n">delete</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="n">window</span><span class="o">-</span><span class="nb">buffer</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">optional</span> <span class="n">output</span><span class="p">)</span>                                                                
+  <span class="p">(</span><span class="n">interactive</span><span class="p">)</span>                                                                                                
+  <span class="p">(</span><span class="n">dolist</span> <span class="p">(</span><span class="n">win</span> <span class="p">(</span><span class="n">window</span><span class="o">-</span><span class="nb">list</span><span class="p">))</span>                                                                                  
+    <span class="p">(</span><span class="n">when</span> <span class="p">(</span><span class="n">string</span><span class="o">=</span> <span class="p">(</span><span class="nb">buffer</span><span class="o">-</span><span class="n">name</span> <span class="p">(</span><span class="n">window</span><span class="o">-</span><span class="nb">buffer</span> <span class="n">win</span><span class="p">))</span> <span class="s">&quot;*Completions*&quot;</span><span class="p">)</span>                                          
+      <span class="p">(</span><span class="n">delete</span><span class="o">-</span><span class="n">window</span> <span class="n">win</span><span class="p">)</span>                                                                                      
+      <span class="p">(</span><span class="n">kill</span><span class="o">-</span><span class="nb">buffer</span> <span class="s">&quot;*Completions*&quot;</span><span class="p">)))</span>                                                                          
+  <span class="n">output</span><span class="p">)</span>                                                                                                      
+<span class="p">(</span><span class="n">add</span><span class="o">-</span><span class="n">hook</span> <span class="s">&#39;comint-preoutput-filter-functions &#39;</span><span class="n">delete</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="n">window</span><span class="o">-</span><span class="nb">buffer</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="jump-to-previous-window">11 Jump to previous window</h2>
+
+<p>I use <code>C-x p</code> to jump to previous window:</p>
+
+<div class="highlight"><pre><code class="python"> 
+  <span class="p">(</span><span class="k">global</span><span class="o">-</span><span class="nb">set</span><span class="o">-</span><span class="n">key</span> <span class="p">(</span><span class="n">kbd</span> <span class="s">&quot;C-x p&quot;</span><span class="p">)</span> <span class="s">&#39;(lambda () (interactive) (other-window -1)))</span>
+</code></pre></div>
+
+<h2 id="python-completion">12 Python completion</h2>
+<p>For python completion, I found <a href="http://tkf.github.io/emacs-jedi/latest/">this one</a> is quite good.</p>
+
+	  </div>
+
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://yuhonglin.github.io/tags.html#emacs-ref">
+					emacs <span>(1)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous disabled"><a>&larr; Previous</a></li>
+		  
+		  
+			<li class="next disabled"><a>Next &rarr;</a>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+
+		</div>
+
+
+	<div id="disqus_thread" class="col-sm-9 col-sm-offset-3"></div>
+	<script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'Marginalia'; // required: replace example with your forum shortname
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+	<div class="col-sm-9 col-sm-offset-3">
+	  <!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2014 Honglin with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+	</div>
+
+    
+	<script type="text/javascript" src="http://yuhonglin.github.io/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://yuhonglin.github.io/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://yuhonglin.github.io/assets/js/app.js"></script>
+	
+	
+   </body>
+
+</html>
+
+
