@@ -3,8 +3,8 @@
 	<channel>
 		<title>Honglin Yu</title>
 		<description></description>
-		<link>http://localhost:4000/</link>
-		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://yuhonglin.github.io/</link>
+		<atom:link href="http://yuhonglin.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Notes on Problems of Functional Analysis</title>
@@ -21,8 +21,8 @@
 
 </description>
 				<pubDate>Tue, 15 Oct 2013 00:00:00 +1100</pubDate>
-				<link>http://localhost:4000/2013/10/15/notes-on-problems-of-functional-analysis.html</link>
-				<guid isPermaLink="true">http://localhost:4000/2013/10/15/notes-on-problems-of-functional-analysis.html</guid>
+				<link>http://yuhonglin.github.io/2013/10/15/notes-on-problems-of-functional-analysis.html</link>
+				<guid isPermaLink="true">http://yuhonglin.github.io/2013/10/15/notes-on-problems-of-functional-analysis.html</guid>
 			</item>
 		
 			<item>
@@ -59,8 +59,8 @@
 &lt;p&gt;Do this for all the &lt;code&gt;.so&lt;/code&gt; files that meet error.&lt;/p&gt;
 </description>
 				<pubDate>Sat, 05 Oct 2013 00:00:00 +1000</pubDate>
-				<link>http://localhost:4000/2013/10/05/MATLAB2012a-gcc-setting-on-ubuntu.html</link>
-				<guid isPermaLink="true">http://localhost:4000/2013/10/05/MATLAB2012a-gcc-setting-on-ubuntu.html</guid>
+				<link>http://yuhonglin.github.io/2013/10/05/MATLAB2012a-gcc-setting-on-ubuntu.html</link>
+				<guid isPermaLink="true">http://yuhonglin.github.io/2013/10/05/MATLAB2012a-gcc-setting-on-ubuntu.html</guid>
 			</item>
 		
 			<item>
@@ -126,8 +126,8 @@
 
 </description>
 				<pubDate>Sat, 28 Sep 2013 00:00:00 +1000</pubDate>
-				<link>http://localhost:4000/2013/09/28/mercer-theorem-and-similarity-between-vector-and-function.html</link>
-				<guid isPermaLink="true">http://localhost:4000/2013/09/28/mercer-theorem-and-similarity-between-vector-and-function.html</guid>
+				<link>http://yuhonglin.github.io/2013/09/28/mercer-theorem-and-similarity-between-vector-and-function.html</link>
+				<guid isPermaLink="true">http://yuhonglin.github.io/2013/09/28/mercer-theorem-and-similarity-between-vector-and-function.html</guid>
 			</item>
 		
 			<item>
@@ -164,8 +164,8 @@ Let &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F},\tilde{\mathcal{F}}&lt;/
 
 </description>
 				<pubDate>Sun, 09 Jun 2013 00:00:00 +1000</pubDate>
-				<link>http://localhost:4000/2013/06/09/commutativity-between-inverse-image-and-sigma-algebra.html</link>
-				<guid isPermaLink="true">http://localhost:4000/2013/06/09/commutativity-between-inverse-image-and-sigma-algebra.html</guid>
+				<link>http://yuhonglin.github.io/2013/06/09/commutativity-between-inverse-image-and-sigma-algebra.html</link>
+				<guid isPermaLink="true">http://yuhonglin.github.io/2013/06/09/commutativity-between-inverse-image-and-sigma-algebra.html</guid>
 			</item>
 		
 			<item>
@@ -327,8 +327,8 @@ Set the search directory, &lt;a href=&quot;http://emacser.com/cedet.htm&quot;&gt
 
 </description>
 				<pubDate>Tue, 04 Jun 2013 19:10:15 +1000</pubDate>
-				<link>http://localhost:4000/2013/06/04/tips-for-emacs.html</link>
-				<guid isPermaLink="true">http://localhost:4000/2013/06/04/tips-for-emacs.html</guid>
+				<link>http://yuhonglin.github.io/2013/06/04/tips-for-emacs.html</link>
+				<guid isPermaLink="true">http://yuhonglin.github.io/2013/06/04/tips-for-emacs.html</guid>
 			</item>
 		
 	</channel>
