@@ -165,44 +165,46 @@
 	  <div class="article_body">
 	  <p>When implementing algorithms in C++, one important thing is to check whether there is floating point computation errors. Take “overflow” as example, in default setting, overflow of floating point numbers won’t cause any errors. Take a look at the following program,</p>
 
-<p>```c++
-#include <iostream>
-#include <cmath></cmath></iostream></p>
+<div class="highlight"><pre><code class="c"> 
+<span class="cp">#include &lt;iostream&gt;</span>
+<span class="cp">#include &lt;cmath&gt;</span>
 
-<p>using namespace std;</p>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<p>int main(int argc, char <em>argv[])
-{
-  double a = pow(10,1000);
-  cout « a</em>2 « endl;
-  return 0;
-}
-```</p>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="kt">double</span> <span class="n">a</span> <span class="o">=</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">);</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">*</span><span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 <p>In the above, <code>a</code> is overflowed, but the program will still finish without errors, though the output is <code>inf</code> rather than a number. You can not output and check each floating point computation result, right? One neat solution is to enable the floating point exceptions. Add some code to the program above,</p>
 
-<p>```c++
-#include <iostream>
-#include <cmath></cmath></iostream></p>
+<div class="highlight"><pre><code class="c"> 
+<span class="cp">#include &lt;iostream&gt;</span>
+<span class="cp">#include &lt;cmath&gt;</span>
 
-<h1 id="ifdef-debug">ifdef DEBUG</h1>
-<p>#include <fenv.h>
-#endif</fenv.h></p>
+<span class="cp">#ifdef DEBUG</span>
+<span class="cp">#include &lt;fenv.h&gt;</span>
+<span class="cp">#endif</span>
 
-<p>using namespace std;</p>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<p>int main(int argc, char *argv[])
-{</p>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
 
-<h1 id="ifdef-debug-1">ifdef DEBUG</h1>
-<p>feenableexcept(-1 xor FE_INEXACT);
-#endif</p>
-
-<p>double a = pow(10,1000);
-  cout « a*2 « endl;
-  return 0;
-}
-```</p>
+<span class="cp">#ifdef DEBUG</span>
+  <span class="n">feenableexcept</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="n">xor</span> <span class="n">FE_INEXACT</span><span class="p">);</span>
+<span class="cp">#endif</span>
+  
+  <span class="kt">double</span> <span class="n">a</span> <span class="o">=</span> <span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">);</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">*</span><span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 <p>Compile with <code>g++ ./main.cpp -DDEBUG</code> and run the program. This time the program will fail and you can receive an error message <code>Floating point exception</code>. Note that, the program will exceptions whenever ANY floating point number computation meets error.</p>
 
