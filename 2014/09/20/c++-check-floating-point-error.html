@@ -6,7 +6,7 @@
 <!-- mathjax -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-<title>Marginalia</title>
+<title>Enable floating point exceptions</title>
 
 <meta name="author" content="Honglin">
 
@@ -149,108 +149,111 @@
 
 
 		<div class="col-sm-9 col-sm-offset-3">
-			<div class="page-header">
-  <h1>Marginalia </h1>
-</div>
+			<article>
+	<div class="page-header">
+	  <h1>Enable floating point exceptions </h1>
+	</div>
 
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   September 
+	   20th,
+	   
+	   2014
+	 </span>
+	  <div class="article_body">
+	  <p>When implementing algorithms in C++, one important thing is to check whether there is floating point computation errors. Take “overflow” as example, in default setting, overflow of floating point numbers won’t cause any errors. Take a look at the following program,</p>
 
+<p>```c++
+#include <iostream>
+#include <cmath></cmath></iostream></p>
 
-        <article class="home">
+<p>using namespace std;</p>
 
-            <span class="post-date">
-                
-                September
-                20th,
-                
-                2014
-            </span>
+<p>int main(int argc, char <em>argv[])
+{
+  double a = pow(10,1000);
+  cout « a</em>2 « endl;
+  return 0;
+}
+```</p>
 
-            <h2>
-                <a href="http://yuhonglin.github.io/2014/09/20/c%2B%2B-check-floating-point-error.html">Enable floating point exceptions</a>
-            </h2>
+<p>In the above, <code>a</code> is overflowed, but the program will still finish without errors, though the output is <code>inf</code> rather than a number. You can not output and check each floating point computation result, right? One neat solution is to enable the floating point exceptions. Add some code to the program above,</p>
 
-            <div>
-                
-                    
-                        
-                    
-                
-            </div>
+<p>```c++
+#include <iostream>
+#include <cmath></cmath></iostream></p>
 
-        </article>
+<h1 id="ifdef-debug">ifdef DEBUG</h1>
+<p>#include <fenv.h>
+#endif</fenv.h></p>
 
+<p>using namespace std;</p>
 
-        <article class="home">
+<p>int main(int argc, char *argv[])
+{</p>
 
-            <span class="post-date">
-                
-                April
-                23rd,
-                  
-                2014
-            </span>
+<h1 id="ifdef-debug-1">ifdef DEBUG</h1>
+<p>feenableexcept(-1 xor FE_INEXACT);
+#endif</p>
 
-            <h2>
-                <a href="http://yuhonglin.github.io/2014/04/23/fcitx-data-ubuntu.html">sunpinyin-data on Ubuntu is out of date</a>
-            </h2>
+<p>double a = pow(10,1000);
+  cout « a*2 « endl;
+  return 0;
+}
+```</p>
 
-            <div>
-                
-                    
-                        
-                    
-                
-            </div>
+<p>Compile with <code>g++ ./main.cpp -DDEBUG</code> and run the program. This time the program will fail and you can receive an error message <code>Floating point exception</code>. Note that, the program will exceptions whenever ANY floating point number computation meets error.</p>
 
-        </article>
+	  </div>
 
+		  
 
-        <article class="home">
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="http://yuhonglin.github.io/tags.html#c++-ref">
+					c++ <span>(1)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="http://yuhonglin.github.io/tags.html#debug-ref">
+					debug <span>(1)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
 
-            <span class="post-date">
-                
-                June
-                5th,
-                
-                2013
-            </span>
+		<hr>
 
-            <h2>
-                <a href="http://yuhonglin.github.io/2013/06/05/tips-for-emacs.html">Some Tips for Emacs</a>
-            </h2>
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://yuhonglin.github.io/2014/04/23/fcitx-data-ubuntu.html" title="sunpinyin-data on Ubuntu is out of date">&larr; Previous</a></li>
+		  
+		  
+			<li class="next disabled"><a>Next &rarr;</a>
+		  
+		</ul>
 
-            <div>
-                
-                    
-                        
-                    
-                
-            </div>
-
-        </article>
-
-<hr/>
-
-<ul class="pager"> 
-
-  
-    <li class="previous disabled">
-      <a>&larr; Newer</a>
-    </li>
-  
-  
-  <li>
-          <span class="page_number">Page: 1 of 1</span>
-  </li>
-
-  
-    <li class="next disabled">
-            <a>Older &rarr;</a>        
-    </li>
-  
-
-</ul>
-
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
 
 
 

@@ -7,20 +7,79 @@
 		<atom:link href="http://yuhonglin.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Enable floating point exceptions</title>
+				<description>&lt;p&gt;When implementing algorithms in C++, one important thing is to check whether there is floating point computation errors. Take “overflow” as example, in default setting, overflow of floating point numbers won’t cause any errors. Take a look at the following program,&lt;/p&gt;
+
+&lt;p&gt;```c++
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;&lt;/cmath&gt;&lt;/iostream&gt;&lt;/p&gt;
+
+&lt;p&gt;using namespace std;&lt;/p&gt;
+
+&lt;p&gt;int main(int argc, char &lt;em&gt;argv[])
+{
+  double a = pow(10,1000);
+  cout « a&lt;/em&gt;2 « endl;
+  return 0;
+}
+```&lt;/p&gt;
+
+&lt;p&gt;In the above, &lt;code&gt;a&lt;/code&gt; is overflowed, but the program will still finish without errors, though the output is &lt;code&gt;inf&lt;/code&gt; rather than a number. You can not output and check each floating point computation result, right? One neat solution is to enable the floating point exceptions. Add some code to the program above,&lt;/p&gt;
+
+&lt;p&gt;```c++
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;&lt;/cmath&gt;&lt;/iostream&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;ifdef-debug&quot;&gt;ifdef DEBUG&lt;/h1&gt;
+&lt;p&gt;#include &lt;fenv.h&gt;
+#endif&lt;/fenv.h&gt;&lt;/p&gt;
+
+&lt;p&gt;using namespace std;&lt;/p&gt;
+
+&lt;p&gt;int main(int argc, char *argv[])
+{&lt;/p&gt;
+
+&lt;h1 id=&quot;ifdef-debug-1&quot;&gt;ifdef DEBUG&lt;/h1&gt;
+&lt;p&gt;feenableexcept(-1 xor FE_INEXACT);
+#endif&lt;/p&gt;
+
+&lt;p&gt;double a = pow(10,1000);
+  cout « a*2 « endl;
+  return 0;
+}
+```&lt;/p&gt;
+
+&lt;p&gt;Compile with &lt;code&gt;g++ ./main.cpp -DDEBUG&lt;/code&gt; and run the program. This time the program will fail and you can receive an error message &lt;code&gt;Floating point exception&lt;/code&gt;. Note that, the program will exceptions whenever ANY floating point number computation meets error.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 20 Sep 2014 07:32:52 +1000</pubDate>
+				<link>http://yuhonglin.github.io/2014/09/20/c%2B%2B-check-floating-point-error.html</link>
+				<guid isPermaLink="true">http://yuhonglin.github.io/2014/09/20/c%2B%2B-check-floating-point-error.html</guid>
+			</item>
+		
+			<item>
+				<title>sunpinyin-data on Ubuntu is out of date</title>
+				<description>&lt;p&gt;Chinese input method in ~ibus~ on ~Ubuntu 14.04~ is buggy at current status. Then I try ~fcitx~ and found it very cool. But there is still one annoying bug: you can not input Chinese words with some prononciations. The reason is Ubuntu is still using old sunpinyin-data package. Debian already uses a &lt;a href=&quot;http://pkgs.org/debian-jessie/debian-main-amd64/sunpinyin-utils_2.0.3+git20140127-1_amd64.deb.html&quot;&gt;new version&lt;/a&gt; (~sunpinyin-data_0.1.22+20131212-1~). Download it and install, then the bug is fixed.&lt;/p&gt;
+</description>
+				<pubDate>Wed, 23 Apr 2014 07:58:45 +1000</pubDate>
+				<link>http://yuhonglin.github.io/2014/04/23/fcitx-data-ubuntu.html</link>
+				<guid isPermaLink="true">http://yuhonglin.github.io/2014/04/23/fcitx-data-ubuntu.html</guid>
+			</item>
+		
+			<item>
 				<title>Some Tips for Emacs</title>
 				<description>&lt;p&gt;This file includes some tips for configuring emacs.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;The emacs setup has somewaht stepped into &amp;#8220;package management software&amp;#8221; era. There are a few 
-very good package management package there. I am using &lt;a href=&quot;https://github.com/dimitri/el-get&quot;&gt;el-get&lt;/a&gt;.
+  &lt;p&gt;The emacs setup has somewhat stepped into “package management software” era. There are a few 
+very good package management softwares there. I am using &lt;a href=&quot;https://github.com/dimitri/el-get&quot;&gt;el-get&lt;/a&gt;.
 I suggest everyone to have a try on it.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;how-to-use-auto-complete-to-show-the-completion-result-of-semantics&quot;&gt;1 How to use Auto-complete to show the completion result of semantics.&lt;/h2&gt;
 
-&lt;p&gt;Semantic is a powerful tool to do C/C++ parsing. But it uses the right-click menu to show completion which I think is not beautiful. Auto-complete&amp;#8217;s menu is much more elegant, so can we use Auto-complete&amp;#8217;s menu to show Semantic&amp;#8217;s result? The answer is yes. Auto-complete&amp;#8217;s author already thought about this and there is a function called ac-complete-semantic will do this for us automatically. Just do the following:
+&lt;p&gt;Semantic is a powerful tool to do C/C++ parsing. But it uses the right-click menu to show completion which I think is not beautiful. Auto-complete’s menu is much more elegant, so can we use Auto-complete’s menu to show Semantic’s result? The answer is yes. Auto-complete’s author already thought about this and there is a function called ac-complete-semantic will do this for us automatically. Just do the following:
 Install both of the two
-add (define-key ac-mode-map (kbd &amp;#8220;M-l&amp;#8221;) &amp;#8216;ac-complete-semantic) to a .emacs.
+add (define-key ac-mode-map (kbd “M-l”) ‘ac-complete-semantic) to a .emacs.
 Then everything works.&lt;/p&gt;
 
 &lt;h2 id=&quot;use-iswitchb-to-switch-buffers&quot;&gt;2 Use iswitchb to switch buffers.&lt;/h2&gt;
@@ -29,7 +88,8 @@ Then everything works.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iswitchb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;into your &lt;code&gt;.emacs&lt;/code&gt; and then you will see this is much much better than the default one.&lt;/p&gt;
 
@@ -38,14 +98,16 @@ Then everything works.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt; 
    sudo apt-get install doxymacs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Add&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;doxymacs)&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hook&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;c-mode-common-hook &amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;doxymacs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;to the &lt;code&gt;.emacs&lt;/code&gt; file. Then we can insert doxygen-like comments by keyboard shotcuts.&lt;/p&gt;
 
@@ -57,7 +119,8 @@ Then everything works.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ac&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;semantic-settings&quot;&gt;5 Semantic settings&lt;/h2&gt;
 
@@ -89,7 +152,8 @@ Set the search directory, &lt;a href=&quot;http://emacser.com/cedet.htm&quot;&gt
           &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;c++-mode)&lt;/span&gt;
           &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;c-mode))&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;I use &lt;code&gt;[C-ret]&lt;/code&gt; to jump into code and &lt;code&gt;[M-ret]&lt;/code&gt; to jump back. &lt;a href=&quot;http://emacser.com/cedet.htm&quot;&gt;&lt;em&gt;Reference&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -107,7 +171,8 @@ Set the search directory, &lt;a href=&quot;http://emacser.com/cedet.htm&quot;&gt
                                                    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
                         &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cdr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;car&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cdr&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))))&lt;/span&gt;
                     &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mrub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;switch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tags&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;yasnippet&quot;&gt;6 Yasnippet&lt;/h2&gt;
 
@@ -115,7 +180,7 @@ Set the search directory, &lt;a href=&quot;http://emacser.com/cedet.htm&quot;&gt
 
 &lt;h2 id=&quot;solarized-color-theme&quot;&gt;7 Solarized Color Theme&lt;/h2&gt;
 
-&lt;p&gt;&amp;#8220;Black-White&amp;#8221; color theme is not suitable for long-time watching, try &lt;a href=&quot;https://github.com/sellout/emacs-color-theme-solarized&quot;&gt;&lt;em&gt;this&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;“Black-White” color theme is not suitable for long-time watching, try &lt;a href=&quot;https://github.com/sellout/emacs-color-theme-solarized&quot;&gt;&lt;em&gt;this&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;save-desktop&quot;&gt;8 Save desktop&lt;/h2&gt;
 
@@ -124,11 +189,12 @@ Set the search directory, &lt;a href=&quot;http://emacser.com/cedet.htm&quot;&gt
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;desktop)&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;desktop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;multi-shell&quot;&gt;9 Multi-shell&lt;/h2&gt;
 
-&lt;p&gt;I think the &amp;#8220;shell&amp;#8221; is the better than &amp;#8220;multi-term&amp;#8221;, &amp;#8220;eshell&amp;#8221;. But by default, one can only have one &amp;#8220;shell&amp;#8221;. The reason is that the buffer&amp;#8217;s name is unique (always &amp;#8220;&lt;em&gt;shell&lt;/em&gt;&amp;#8221;). If we change the shell&amp;#8217;s name everytime after we created it. Then we can get multiple shells:&lt;/p&gt;
+&lt;p&gt;I think the “shell” is the better than “multi-term”, “eshell”. But by default, one can only have one “shell”. The reason is that the buffer’s name is unique (always “&lt;em&gt;shell&lt;/em&gt;”). If we change the shell’s name everytime after we created it. Then we can get multiple shells:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shellnumber&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -137,11 +203,12 @@ Set the search directory, &lt;a href=&quot;http://emacser.com/cedet.htm&quot;&gt
             &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rename&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;concat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shellnumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shellnumber&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shellnumber&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;\C-x.&amp;quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;newshell)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;h2 id=&quot;auto-kill-completions-buffers&quot;&gt;10 &amp;#8220;Auto-kill&amp;#8221; &lt;code&gt;*Completions*&lt;/code&gt; buffers&lt;/h2&gt;
+&lt;h2 id=&quot;auto-kill-completions-buffers&quot;&gt;10 “Auto-kill” &lt;code&gt;*Completions*&lt;/code&gt; buffers&lt;/h2&gt;
 
-&lt;p&gt;The &lt;code&gt;*Completions*&lt;/code&gt; buffers can be annoying sometime, using following code can &amp;#8220;auto-kill&amp;#8221; them after openning a file or after commiting a command in shell:&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;*Completions*&lt;/code&gt; buffers can be annoying sometime, using following code can “auto-kill” them after openning a file or after commiting a command in shell:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
 &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;openning&lt;/span&gt;
@@ -159,7 +226,8 @@ Set the search directory, &lt;a href=&quot;http://emacser.com/cedet.htm&quot;&gt
       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kill&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;*Completions*&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;                                                                          
   &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                                                                                                      
 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hook&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;comint-preoutput-filter-functions &amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;jump-to-previous-window&quot;&gt;11 Jump to previous window&lt;/h2&gt;
 
@@ -167,14 +235,15 @@ Set the search directory, &lt;a href=&quot;http://emacser.com/cedet.htm&quot;&gt
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kbd&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;C-x p&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;(lambda () (interactive) (other-window -1)))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;python-completion&quot;&gt;12 Python completion&lt;/h2&gt;
 &lt;p&gt;For python completion, I found &lt;a href=&quot;http://tkf.github.io/emacs-jedi/latest/&quot;&gt;this one&lt;/a&gt; is quite good.&lt;/p&gt;
 </description>
-				<pubDate>Tue, 04 Jun 2013 19:10:15 +1000</pubDate>
-				<link>http://yuhonglin.github.io/2013/06/04/tips-for-emacs.html</link>
-				<guid isPermaLink="true">http://yuhonglin.github.io/2013/06/04/tips-for-emacs.html</guid>
+				<pubDate>Wed, 05 Jun 2013 05:10:15 +1000</pubDate>
+				<link>http://yuhonglin.github.io/2013/06/05/tips-for-emacs.html</link>
+				<guid isPermaLink="true">http://yuhonglin.github.io/2013/06/05/tips-for-emacs.html</guid>
 			</item>
 		
 	</channel>
