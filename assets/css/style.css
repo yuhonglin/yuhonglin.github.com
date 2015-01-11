@@ -1,5 +1,69 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:500&subset=latin,latin-ext);
 
+#yt-firstimage {
+    max-width: 700px;
+}
+
+.excerptimage {
+    max-width: 600px;
+}
+
+img.horizon-align-2 {
+    width:45%;
+    max-width:500px;
+    margin-bottom: 3px;
+}
+
+#flow-yt {
+    max-width:800px;
+    align:center;
+}
+
+.centeredImage
+{
+    text-align:center;
+    display:block;
+}
+
+.imagediv {
+    display:block;
+}
+    
+imgContainer {
+    float: left;
+}
+
+figcaption {
+    margin: 10px 0 0 0;
+    font-variant: small-caps;
+    font-family: Arial;
+    font-weight: bold;
+    color: #bb3333;
+    text-align: center;
+}
+
+.scfont {
+    font-variant: small-caps;
+    font-family: Arial;
+    font-weight: bold;
+    display:inline;
+}
+
+p {
+    max-width: 800px;
+} 
+
+.main-nav {
+    font-size: 20px;
+    padding-top: 10%;
+    padding-left: 25%;
+    padding-bottom: 20%;    
+}
+.main-nav li {
+    list-style-type: none;
+    margin: 0 0 2% 0;
+}
+
 body{
 	color: #2c3e50;
 }
@@ -7,7 +71,7 @@ body{
 .sidebar {
 	position: fixed;
 	top: 0px;
-	padding-top: 10%;
+	padding-top: 2%;
 }
 
 .sidebar-header {

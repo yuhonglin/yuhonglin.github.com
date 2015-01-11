@@ -19,10 +19,10 @@
 <![endif]-->
 
 <!-- Le styles -->
-<link href="http://yuhonglin.github.io/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://yuhonglin.github.io/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-<link href="http://yuhonglin.github.io/assets/resources/syntax/syntax.css" rel="stylesheet">
-<link href="http://yuhonglin.github.io/assets/css/style.css" rel="stylesheet">
+<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="/assets/css/style.css" rel="stylesheet">
 
 <!-- Le fav and touch icons -->
 <!-- Update these with your own images
@@ -32,7 +32,7 @@
 <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 -->
 
- <link rel="alternate" type="application/rss+xml" title="" href="http://yuhonglin.github.io/feed.xml">
+ <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
 <! -- header.html end -->
 
@@ -62,21 +62,24 @@
 		      <i class="fa fa-envelope"></i>
 		    </a>
 		    
-			<a class="navbar-brand" href="http://yuhonglin.github.io/">
-				<img src="http://www.gravatar.com/avatar/d5585155115642b123d2d3418809f425" class="img-circle" />
-				Honglin Yu
-			</a>
+		    <a class="navbar-brand" href="/">
+			<img src="http://www.gravatar.com/avatar/d5585155115642b123d2d3418809f425" class="img-circle" />
+			Honglin Yu
+		    </a>		    
 		  </div>
 
-		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  
+  		  <!-- Collect the nav links, forms, and other content for toggling -->
 		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-			  <li class="active"><a href="http://yuhonglin.github.io/">Home</a></li>
-			  <li><a href="http://yuhonglin.github.io/categories.html">Categories</a></li>
-  			  <li><a href="http://yuhonglin.github.io/tags.html">Tags</a></li>
+			    <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+			    <li><a href="/project/"><i class="fa fa-folder"></i> Projects</a></li>
+			    <li><a href="/publication.html"><i class="fa fa-tags"></i>Publication</a></li>
+			    <li><a href="/assets/cv/CV_Honglin.pdf"><i class="fa fa-tags"></i>CV</a></li>
 			</ul>
 		  </div><!-- /.navbar-collapse -->
 		</nav>
+
 
        <!-- nav-menu-dropdown -->
        <div class="btn-group hidden-xs" id="nav-menu">
@@ -84,24 +87,38 @@
             <i class="fa fa-bars"></i>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="http://yuhonglin.github.io/"><i class="fa fa-home"></i> Home</a></li>
-            <li><a href="http://yuhonglin.github.io/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
-            <li><a href="http://yuhonglin.github.io/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+            <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="/project/"><i class="fa fa-folder"></i> Projects</a></li>
+	    <li><a href="/publication.html"><i class="fa fa-tags"></i>Publication</a></li>
+	    <li><a href="/assets/cv/CV_Honglin.pdf"><i class="fa fa-tags"></i>CV</a></li>
               <li class="divider"></li>
             <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
           </ul>
        </div>
-
 		<div class="col-sm-3 sidebar hidden-xs">
 			<! -- sidebar.html -->
+
 <header class="sidebar-header" role="banner">
-	<a href="http://yuhonglin.github.io/">
+	<a href="/">
 		<img src="http://www.gravatar.com/avatar/d5585155115642b123d2d3418809f425?s=150" class="img-circle" />
 	</a>
 	<h3 class="title">
-        <a href="http://yuhonglin.github.io/">Honglin Yu</a>
+        <a href="/">Honglin Yu</a>
     </h3>
 </header>
+
+
+
+
+<nav class="main-nav">
+    <ul>
+	<li class="nav-item"><a href="/index.html"></i> Home </a></li>
+	<li class="nav-item"><a href="/project/"></i> Project </a></li>
+	<li class="nav-item"><a href="/publication.html">Publication </a></li>
+	<li class="nav-item "><a href="/assets/cv/CV_Honglin.pdf"> CV </a></li>
+    </ul>
+</nav>
+
 
 
 
@@ -132,21 +149,13 @@
 	<ul id="contact-list-secondary" class="list-unstyled list-inline">
 		
 		
-		<li>
-			<a class="btn btn-default btn-sm" href="http://yuhonglin.github.io/feed.xml">
-				<i class="fa fa-rss fa-lg"></i>
-			</a>
-		</li>
 	</ul>
-</div>
+</div>	
 
-	
 
 <! -- sidebar.html end -->
 
 		</div>
-
-
 
 		<div class="col-sm-9 col-sm-offset-3">
 			<div class="page-header">
@@ -159,32 +168,50 @@
        
         
             <li>
-                <a href="#emacs-ref" data-toggle="tab">
-                    Emacs <span class="badge pull-right">1</span>
+                <a href="#YouTube-video-ref" data-toggle="tab">
+                    Youtube video <span class="badge pull-right">2</span>
                 </a>
             </li>
         
             <li>
-                <a href="#ubuntu-ref" data-toggle="tab">
-                    Ubuntu <span class="badge pull-right">1</span>
+                <a href="#popularity-prediction-ref" data-toggle="tab">
+                    Popularity prediction <span class="badge pull-right">2</span>
                 </a>
             </li>
         
             <li>
-                <a href="#fcitx-ref" data-toggle="tab">
-                    Fcitx <span class="badge pull-right">1</span>
+                <a href="#cross-domain-analysis-ref" data-toggle="tab">
+                    Cross domain analysis <span class="badge pull-right">2</span>
                 </a>
             </li>
         
             <li>
-                <a href="#c++-ref" data-toggle="tab">
-                    C++ <span class="badge pull-right">1</span>
+                <a href="#Video-shot-detection-ref" data-toggle="tab">
+                    Video shot detection <span class="badge pull-right">1</span>
                 </a>
             </li>
         
             <li>
-                <a href="#debug-ref" data-toggle="tab">
-                    Debug <span class="badge pull-right">1</span>
+                <a href="#Frequent-item-set-mining-ref" data-toggle="tab">
+                    Frequent item set mining <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="#openCV-ref" data-toggle="tab">
+                    Opencv <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="#libavcodec-ref" data-toggle="tab">
+                    Libavcodec <span class="badge pull-right">1</span>
+                </a>
+            </li>
+        
+            <li>
+                <a href="#Smith-Waterman-algorithm-ref" data-toggle="tab">
+                    Smith-waterman algorithm <span class="badge pull-right">1</span>
                 </a>
             </li>
         
@@ -195,14 +222,20 @@
 <!-- Tab panes -->
 <div class="tab-content col-sm-9 col-xs-6">
   
-    <div class="tab-pane" id="emacs-ref">
-      <h2 style="margin-top: 0px">Posts tagged  with emacs</h2>
+    <div class="tab-pane" id="YouTube-video-ref">
+      <h2 style="margin-top: 0px">Posts tagged  with YouTube video</h2>
       <ul class="list-unstyled">
         
         
           
             
-              <li style="line-height: 35px;"><a href="http://yuhonglin.github.io/2013/06/05/tips-for-emacs.html">Some Tips for Emacs</a> <span class="text-muted">- June 05, 2013</span></li>
+              <li style="line-height: 35px;"><a href="/2013/10/02/youtube-and-twitter.html">Predict YouTube Video Popularity with Twitter's Feed</a> <span class="text-muted">- October 02, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/10/04/viewcount-phase.html">Exploring Phases of YouTube Video Popularity Evolution</a> <span class="text-muted">- October 04, 2012</span></li>
             
           
         
@@ -210,14 +243,20 @@
       </ul>
     </div>
   
-    <div class="tab-pane" id="ubuntu-ref">
-      <h2 style="margin-top: 0px">Posts tagged  with ubuntu</h2>
+    <div class="tab-pane" id="popularity-prediction-ref">
+      <h2 style="margin-top: 0px">Posts tagged  with popularity prediction</h2>
       <ul class="list-unstyled">
         
         
           
             
-              <li style="line-height: 35px;"><a href="http://yuhonglin.github.io/2014/04/23/fcitx-data-ubuntu.html">sunpinyin-data on Ubuntu is out of date</a> <span class="text-muted">- April 23, 2014</span></li>
+              <li style="line-height: 35px;"><a href="/2013/10/02/youtube-and-twitter.html">Predict YouTube Video Popularity with Twitter's Feed</a> <span class="text-muted">- October 02, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/10/04/viewcount-phase.html">Exploring Phases of YouTube Video Popularity Evolution</a> <span class="text-muted">- October 04, 2012</span></li>
             
           
         
@@ -225,14 +264,20 @@
       </ul>
     </div>
   
-    <div class="tab-pane" id="fcitx-ref">
-      <h2 style="margin-top: 0px">Posts tagged  with fcitx</h2>
+    <div class="tab-pane" id="cross-domain-analysis-ref">
+      <h2 style="margin-top: 0px">Posts tagged  with cross domain analysis</h2>
       <ul class="list-unstyled">
         
         
           
             
-              <li style="line-height: 35px;"><a href="http://yuhonglin.github.io/2014/04/23/fcitx-data-ubuntu.html">sunpinyin-data on Ubuntu is out of date</a> <span class="text-muted">- April 23, 2014</span></li>
+              <li style="line-height: 35px;"><a href="/2013/10/02/youtube-and-twitter.html">Predict YouTube Video Popularity with Twitter's Feed</a> <span class="text-muted">- October 02, 2013</span></li>
+            
+          
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2012/10/04/viewcount-phase.html">Exploring Phases of YouTube Video Popularity Evolution</a> <span class="text-muted">- October 04, 2012</span></li>
             
           
         
@@ -240,14 +285,14 @@
       </ul>
     </div>
   
-    <div class="tab-pane" id="c++-ref">
-      <h2 style="margin-top: 0px">Posts tagged  with c++</h2>
+    <div class="tab-pane" id="Video-shot-detection-ref">
+      <h2 style="margin-top: 0px">Posts tagged  with Video shot detection</h2>
       <ul class="list-unstyled">
         
         
           
             
-              <li style="line-height: 35px;"><a href="http://yuhonglin.github.io/2014/09/20/c%2B%2B-check-floating-point-error.html">Enable floating point exceptions</a> <span class="text-muted">- September 20, 2014</span></li>
+              <li style="line-height: 35px;"><a href="/2014/08/31/visual-meme-sequence-analysis.html">Visual Meme Sequence Analysis on YouTube (Video Remix Analysis)</a> <span class="text-muted">- August 31, 2014</span></li>
             
           
         
@@ -255,14 +300,59 @@
       </ul>
     </div>
   
-    <div class="tab-pane" id="debug-ref">
-      <h2 style="margin-top: 0px">Posts tagged  with debug</h2>
+    <div class="tab-pane" id="Frequent-item-set-mining-ref">
+      <h2 style="margin-top: 0px">Posts tagged  with Frequent item set mining</h2>
       <ul class="list-unstyled">
         
         
           
             
-              <li style="line-height: 35px;"><a href="http://yuhonglin.github.io/2014/09/20/c%2B%2B-check-floating-point-error.html">Enable floating point exceptions</a> <span class="text-muted">- September 20, 2014</span></li>
+              <li style="line-height: 35px;"><a href="/2014/08/31/visual-meme-sequence-analysis.html">Visual Meme Sequence Analysis on YouTube (Video Remix Analysis)</a> <span class="text-muted">- August 31, 2014</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="openCV-ref">
+      <h2 style="margin-top: 0px">Posts tagged  with openCV</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2014/08/31/visual-meme-sequence-analysis.html">Visual Meme Sequence Analysis on YouTube (Video Remix Analysis)</a> <span class="text-muted">- August 31, 2014</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="libavcodec-ref">
+      <h2 style="margin-top: 0px">Posts tagged  with libavcodec</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2014/08/31/visual-meme-sequence-analysis.html">Visual Meme Sequence Analysis on YouTube (Video Remix Analysis)</a> <span class="text-muted">- August 31, 2014</span></li>
+            
+          
+        
+        
+      </ul>
+    </div>
+  
+    <div class="tab-pane" id="Smith-Waterman-algorithm-ref">
+      <h2 style="margin-top: 0px">Posts tagged  with Smith-Waterman algorithm</h2>
+      <ul class="list-unstyled">
+        
+        
+          
+            
+              <li style="line-height: 35px;"><a href="/2014/08/31/visual-meme-sequence-analysis.html">Visual Meme Sequence Analysis on YouTube (Video Remix Analysis)</a> <span class="text-muted">- August 31, 2014</span></li>
             
           
         
@@ -276,32 +366,13 @@
 
 
 
-
 		</div>
-
-
-	<div id="disqus_thread" class="col-sm-9 col-sm-offset-3"></div>
-	<script type="text/javascript">
-          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'Marginalia'; // required: replace example with your forum shortname
-
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-	<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
 	<div class="col-sm-9 col-sm-offset-3">
 	  <!-- footer.html -->
 <footer>
  <hr/>
  <p>
- 	&copy; 2014 Honglin with Jekyll. Theme: <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ 	&copy; 2015 Honglin with Jekyll. Inspired by <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
  </p>
 </footer>
 
@@ -310,10 +381,9 @@
 	</div>
 
     
-	<script type="text/javascript" src="http://yuhonglin.github.io/assets/resources/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="http://yuhonglin.github.io/assets/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="http://yuhonglin.github.io/assets/js/app.js"></script>
-	
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
 	
    </body>
 

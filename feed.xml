@@ -3,249 +3,165 @@
 	<channel>
 		<title>Honglin Yu</title>
 		<description></description>
-		<link>http://yuhonglin.github.io/</link>
-		<atom:link href="http://yuhonglin.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		<link>/</link>
+		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Enable floating point exceptions</title>
-				<description>&lt;p&gt;When implementing algorithms in C++, one important thing is to check whether there is floating point computation errors. Take “overflow” as example, in default setting, overflow of floating point numbers won’t cause any errors. Take a look at the following program,&lt;/p&gt;
+				<title>Visual Meme Sequence Analysis on YouTube (Video Remix Analysis)</title>
+				<description>&lt;blockquote&gt;
+  &lt;div class=&quot;scfont&quot;&gt;Excerpt:&lt;/div&gt;
+  &lt;p&gt;Mining visual meme sequences from large number of videos&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;c&quot;&gt; 
-&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;cmath&amp;gt;&lt;/span&gt;
+  &lt;p&gt;&lt;img src=&quot;/assets/img/flow.png&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;!--more--&gt;
 
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;by &lt;a ref=&quot;yuhonglin.github.io&quot;&gt;Honglin Yu&lt;/a&gt; and &lt;a ref=&quot;http://users.cecs.anu.edu.au/~xlx/&quot;&gt;Lexing Xie&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;In the above, &lt;code&gt;a&lt;/code&gt; is overflowed, but the program will still finish without errors, though the output is &lt;code&gt;inf&lt;/code&gt; rather than a number. You can not output and check each floating point computation result, right? One neat solution is to enable the floating point exceptions. Add some code to the program above,&lt;/p&gt;
+&lt;h3&gt; Motivation &lt;/h3&gt;
+&lt;p&gt;Many YouTube videos are &lt;code&gt;remix videos&lt;/code&gt; which consist of &lt;code&gt;shots&lt;/code&gt; copied from other videos. Former work built system trying to find out duplicate shots in large number of videos. This work aims to further take the association rules and orders of shots into consideration. The motivation of this work are,&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt; &quot;Order&quot; of shots is crucially important for video making (see &lt;a href=&quot;http://en.wikipedia.org/wiki/Montage_%28filmmaking%29&quot;&gt;Montage&lt;/a&gt;, &lt;a href=&quot;http://en.wikipedia.org/wiki/Kuleshov_Effect&quot;&gt;Kuleshov Effect&lt;/a&gt;) &lt;/li&gt;
+    &lt;li&gt; Enable viral content analysis at shot sequence level  &lt;/li&gt;
+    &lt;li&gt; Try to understand human video editing preference, w.r.t. different topics &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;c&quot;&gt; 
-&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;cmath&amp;gt;&lt;/span&gt;
+&lt;h3&gt; System Overview &lt;/h3&gt;
+&lt;p&gt;We have built the following system to find visual meme sequences.&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+    &lt;img src=&quot;/assets/img/flow.png&quot; /&gt;
+    &lt;figcaption&gt;Fig.1 Working flow of the system&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
 
-&lt;span class=&quot;cp&quot;&gt;#ifdef DEBUG&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;fenv.h&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#endif&lt;/span&gt;
+&lt;h3&gt; Result &lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;Here&lt;/a&gt; is an example of the mining results (22.5MB). Every row is the shots for each video in chronological order.
+And the black lines connect the visual memes we found. (These videos are about &lt;a href=&quot;http://en.wikipedia.org/wiki/2009%E2%80%9310_Iranian_election_protests&quot;&gt;2009 Iranian election protests&lt;/a&gt;)&lt;/p&gt;
 
-&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;h3&gt; Software Developed &lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;
+	&lt;a href=&quot;https://github.com/yuhonglin/shotdetect&quot;&gt;ShotDetect&lt;/a&gt;: detect shots of videos
+	&lt;ul&gt;
+	    &lt;li&gt; It is fast, deveploped by C++ and is directly based on libavcodec and openCV etc. &lt;/li&gt;
+	    &lt;li&gt; It can deal with all formats of online videos (thanks to libavcodec etc.) &lt;/li&gt;
+	    &lt;li&gt; The performace is quite good (F1 score &amp;gt; 80% from a test on 400 shots) &lt;/li&gt;
+	&lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+	&lt;a href=&quot;https://github.com/yuhonglin/PySW&quot;&gt;PySW&lt;/a&gt;: implement Smith-Waterman Algorithms for sub-sequence matching (written in C++, wrapped in python)
+    &lt;/li&gt;
+    &lt;li&gt;
+	Various powerful parallel crawling and preprocessing programs
+	&lt;ul&gt;
+	    &lt;li&gt; Deployed on &lt;a href=&quot;http://nci.org.au/&quot;&gt; The National Computational Infrastructure &lt;/a&gt; &lt;/li&gt;
+	    &lt;li&gt; Processed &amp;gt; 15TB data &lt;/li&gt;
+	&lt;/ul&gt;	
+    &lt;/li&gt;    
+&lt;/ul&gt;
 
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-&lt;span class=&quot;cp&quot;&gt;#ifdef DEBUG&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;feenableexcept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FE_INEXACT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#endif&lt;/span&gt;
-  
-  &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Compile with &lt;code&gt;g++ ./main.cpp -DDEBUG&lt;/code&gt; and run the program. This time the program will fail and you can receive an error message &lt;code&gt;Floating point exception&lt;/code&gt;. Note that, the program will exceptions whenever ANY floating point number computation meets error.&lt;/p&gt;
+&lt;h3&gt; Poster &lt;/h3&gt;
+&lt;p&gt;Download from &lt;a href=&quot;http://cecs.anu.edu.au/files/posters/2012/u4975468.pdf&quot;&gt;here&lt;/a&gt; (12.2MB).&lt;/p&gt;
 </description>
-				<pubDate>Sat, 20 Sep 2014 07:32:52 +1000</pubDate>
-				<link>http://yuhonglin.github.io/2014/09/20/c%2B%2B-check-floating-point-error.html</link>
-				<guid isPermaLink="true">http://yuhonglin.github.io/2014/09/20/c%2B%2B-check-floating-point-error.html</guid>
+				<pubDate>Sun, 31 Aug 2014 05:10:15 +1000</pubDate>
+				<link>/2014/08/31/visual-meme-sequence-analysis.html</link>
+				<guid isPermaLink="true">/2014/08/31/visual-meme-sequence-analysis.html</guid>
 			</item>
 		
 			<item>
-				<title>sunpinyin-data on Ubuntu is out of date</title>
-				<description>&lt;p&gt;Chinese input method in ~ibus~ on ~Ubuntu 14.04~ is buggy at current status. Then I try ~fcitx~ and found it very cool. But there is still one annoying bug: you can not input Chinese words with some prononciations. The reason is Ubuntu is still using old sunpinyin-data package. Debian already uses a &lt;a href=&quot;http://pkgs.org/debian-jessie/debian-main-amd64/sunpinyin-utils_2.0.3+git20140127-1_amd64.deb.html&quot;&gt;new version&lt;/a&gt; (~sunpinyin-data_0.1.22+20131212-1~). Download it and install, then the bug is fixed.&lt;/p&gt;
+				<title>Predict YouTube Video Popularity with Twitter's Feed</title>
+				<description>&lt;blockquote&gt;
+  &lt;div class=&quot;scfont&quot;&gt;Excerpt:&lt;/div&gt;
+  &lt;p&gt;We predict viewcount &lt;em&gt;jumps&lt;/em&gt; and &lt;em&gt;early&lt;/em&gt; viewcounts of YouTube videos, which are mission impossible for former methods (without external information).
+&lt;img class=&quot;excerptimage&quot; src=&quot;/assets/img/twitter2youtube_lx.png&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;by &lt;a ref=&quot;yuhonglin.github.io&quot;&gt;Honglin Yu&lt;/a&gt;, &lt;a ref=&quot;http://users.cecs.anu.edu.au/~xlx/&quot;&gt;Lexing Xie&lt;/a&gt; and &lt;a href=&quot;http://users.cecs.anu.edu.au/~ssanner/&quot;&gt;Scott Sanner&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt; Motivation &lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt; Online social networks are far not isolated islands. Understanding their interaction has both commercial and research values.&lt;/li&gt;
+    &lt;li&gt; With the help of external information, we can better predict YouTube video popularity. &lt;/li&gt;
+    &lt;li&gt; Treating viewcount changes as a measure, we can understand what kinds of tweeting patterns truely indicate the popularity of things mentioned in tweets.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;centeredImage&quot;&gt;
+    &lt;img src=&quot;/assets/img/twitter2youtube.png&quot; /&gt;
+    &lt;figcaption&gt;Fig.1 Example of five tweets mentioning one YouTube video and the two questions we try to answer.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3&gt; Problem Setup &lt;/h3&gt;
+&lt;p&gt;We proposed two prediction problems which are mission impossible without external information:&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt; Predict videos' viewcount right after uploading (&lt;div class=&quot;scfont&quot;&gt; Early &lt;/div&gt;) &lt;/li&gt;
+    &lt;li&gt; Predict whether videos' viewcount suddenly increase (&lt;div class=&quot;scfont&quot;&gt; Jump &lt;/div&gt;) &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt; Result Highlights (&lt;a href=&quot;http://cantabile.anu.edu.au/yt/demo/&quot;&gt;Demo&lt;/a&gt;) &lt;/h3&gt;
+
+&lt;p&gt;Here are two examples of showing clear correlation between tweets pulses and viewcount increases. For more details about our results (i.e. performances of each features), please look at our &lt;a href=&quot;/assets/posters/mm14_poster.pdf&quot;&gt;poster&lt;/a&gt; or &lt;a href=&quot;http://users.cecs.anu.edu.au/~xlx/papers/acmmm14.pdf&quot;&gt;paper&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;centeredimage&quot;&gt;
+        &lt;img class=&quot;horizon-align-2&quot; src=&quot;/assets/img/yt_example_jump.png&quot; /&gt;
+        &lt;img class=&quot;horizon-align-2&quot; src=&quot;/assets/img/yt_example_early.png&quot; /&gt;
+	&lt;figcaption&gt;Fig.2 Left: A video having less than 9000 views in its first 3 months, and then gaining 1.2 million views within 15 days. Right: A video with a few dozen Twitter mentions and nearly 200,000 views in its first 15 days.&lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;h3&gt; Twitter Features Highlights &lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt; User graph features: degree, pagerank and hub/authority scores computed from a Twitter user graph of  41.7 million nodes and 1.47 billion edges. &lt;/li&gt;
+    &lt;li&gt; User behavior features: the frequencies of their usage and engagement of hashtag, retweeting etc. extracted from 476 million tweets. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;figure class=&quot;centeredImage&quot;&gt;
+    &lt;img src=&quot;/assets/img/flow_yt.png&quot; id=&quot;flow-yt&quot; /&gt;
+    &lt;figcaption&gt;Fig.3 Working flow of the system.&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+
+&lt;h3&gt; Software Highlights &lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt; &lt;a href=&quot;https://github.com/yuhonglin/YTCrawl&quot;&gt;YTcrawl&lt;/a&gt; : a powerful YouTube viewcount history crawler. &lt;/li&gt;
+    &lt;li&gt; Programs (in C++) to efficiently compute centrality scores (mainstream tools like NetworkX or iGraph do not work due to the huge size of the graph). &lt;/li&gt;
+    &lt;li&gt; Various programs/scripts to efficiently do feature engineering. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt; Conclusions &lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt; Our work confirms that Twitter information can be effectively used to predict video popularity on YouTube. &lt;/li&gt;
+    &lt;li&gt; Twitter user features associated with tweeting activities are more informative than graph features. Having a diverse range of users and associated tweeting activities is
+more informative than the total or average volume of activity of these users.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt; Posters &lt;/h3&gt;
+&lt;p&gt;For more details, please see the &lt;a href=&quot;/assets/posters/mm14_poster.pdf&quot;&gt;poster&lt;/a&gt;.&lt;/p&gt;
 </description>
-				<pubDate>Wed, 23 Apr 2014 07:58:45 +1000</pubDate>
-				<link>http://yuhonglin.github.io/2014/04/23/fcitx-data-ubuntu.html</link>
-				<guid isPermaLink="true">http://yuhonglin.github.io/2014/04/23/fcitx-data-ubuntu.html</guid>
+				<pubDate>Wed, 02 Oct 2013 06:03:02 +1000</pubDate>
+				<link>/2013/10/02/youtube-and-twitter.html</link>
+				<guid isPermaLink="true">/2013/10/02/youtube-and-twitter.html</guid>
 			</item>
 		
 			<item>
-				<title>Some Tips for Emacs</title>
-				<description>&lt;p&gt;This file includes some tips for configuring emacs.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The emacs setup has somewhat stepped into “package management software” era. There are a few 
-very good package management softwares there. I am using &lt;a href=&quot;https://github.com/dimitri/el-get&quot;&gt;el-get&lt;/a&gt;.
-I suggest everyone to have a try on it.&lt;/p&gt;
+				<title>Exploring Phases of YouTube Video Popularity Evolution</title>
+				<description>&lt;blockquote&gt;
+  &lt;p&gt;This is an on-going work so I only list some general highlights for now.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;how-to-use-auto-complete-to-show-the-completion-result-of-semantics&quot;&gt;1 How to use Auto-complete to show the completion result of semantics.&lt;/h2&gt;
+&lt;!--more--&gt;
 
-&lt;p&gt;Semantic is a powerful tool to do C/C++ parsing. But it uses the right-click menu to show completion which I think is not beautiful. Auto-complete’s menu is much more elegant, so can we use Auto-complete’s menu to show Semantic’s result? The answer is yes. Auto-complete’s author already thought about this and there is a function called ac-complete-semantic will do this for us automatically. Just do the following:
-Install both of the two
-add (define-key ac-mode-map (kbd “M-l”) ‘ac-complete-semantic) to a .emacs.
-Then everything works.&lt;/p&gt;
+&lt;p&gt;by &lt;a ref=&quot;yuhonglin.github.io&quot;&gt;Honglin Yu&lt;/a&gt;, &lt;a ref=&quot;http://users.cecs.anu.edu.au/~xlx/&quot;&gt;Lexing Xie&lt;/a&gt; and &lt;a href=&quot;http://users.cecs.anu.edu.au/~ssanner/&quot;&gt;Scott Sanner&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;use-iswitchb-to-switch-buffers&quot;&gt;2 Use iswitchb to switch buffers.&lt;/h2&gt;
-
-&lt;p&gt;I suggest to open iswitchb-mode all the time. Just insert&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iswitchb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;into your &lt;code&gt;.emacs&lt;/code&gt; and then you will see this is much much better than the default one.&lt;/p&gt;
-
-&lt;h2 id=&quot;use-doxymacs-to-insert-doxygen-like-comments&quot;&gt;3 Use doxymacs to insert doxygen-like comments&lt;/h2&gt;
-&lt;p&gt;First, install doxymacs (e.g. in Ubuntu):&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt; 
-   sudo apt-get install doxymacs
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Add&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;doxymacs)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hook&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;c-mode-common-hook &amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;doxymacs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;to the &lt;code&gt;.emacs&lt;/code&gt; file. Then we can insert doxygen-like comments by keyboard shotcuts.&lt;/p&gt;
-
-&lt;h2 id=&quot;auto-complete-settings&quot;&gt;4 Auto-complete settings&lt;/h2&gt;
-
-&lt;p&gt;This section just records some auto-complete setting.&lt;/p&gt;
-
-&lt;p&gt;1) Set the number of characters that will trigger the auto-complete&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ac&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;semantic-settings&quot;&gt;5 Semantic settings&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;I used to use semantics to complete c/c++ code in emacs but I found it does not work in a lot of cases. Recently, I found another extensions based on clang and llvm which performs very well (I only tried &lt;a href=&quot;https://github.com/Sarcasm/irony-mode&quot;&gt;this one&lt;/a&gt;). It works perfectly as long as your code is correct in syntax. To install it, first you have to install clang. If you are using ubuntu, just using the command:
-&lt;code&gt;sudo apt-get install clang&lt;/code&gt;. Apt can automatically select relevant llvm libs to install. Then just follow the readme files of the extension to config the .emacs file.
-Until now, the only drawback I found of this tool is that: compared with semantics/cedet, it does not include code navigation functions. So you can still use semantics for the code jumping functions.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This section just records some Semantic setting.
-Set the search directory, &lt;a href=&quot;http://emacser.com/cedet.htm&quot;&gt;&lt;em&gt;Reference&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defconst&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cedet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirs&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;..&amp;quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;../include&amp;quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;../inc&amp;quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;../common&amp;quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;../public&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;../..&amp;quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;../../include&amp;quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;../../inc&amp;quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;../../common&amp;quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;../../public&amp;quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/data0/local/include/opencv/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defconst&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cedet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;win32&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirs&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;C:/MinGW/include&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;C:/MinGW/include/c++/3.4.5&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;C:/MinGW/include/c++/3.4.5/mingw32&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;C:/MinGW/include/c++/3.4.5/backward&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;C:/MinGW/lib/gcc/mingw32/3.4.5/include&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&amp;quot;C:/Program Files/Microsoft Visual Studio/VC98/MFC/Include&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;semantic-c nil &amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;noerror&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cedet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;windows-nt)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirs&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cedet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;win32&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mapc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;c++-mode)&lt;/span&gt;
-          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;c-mode))&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;I use &lt;code&gt;[C-ret]&lt;/code&gt; to jump into code and &lt;code&gt;[M-ret]&lt;/code&gt; to jump back. &lt;a href=&quot;http://emacser.com/cedet.htm&quot;&gt;&lt;em&gt;Reference&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;semantic-ia-fast-jump)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-                &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-                  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interactive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;oref&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mru&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bookmark&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ring&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-                      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Semantic Bookmark ring is currently empty&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-                  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ring&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;oref&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mru&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bookmark&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ring&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-                         &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mrub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assoc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-                         &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cdr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;car&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
-                    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;equivalent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;oref&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                                                   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-                        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cdr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;car&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cdr&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))))&lt;/span&gt;
-                    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;semantic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mrub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;switch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tags&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;yasnippet&quot;&gt;6 Yasnippet&lt;/h2&gt;
-
-&lt;p&gt;There are a lot of good snippets on the Internet e.g. try &lt;a href=&quot;https://github.com/AndreaCrotti/yasnippet-snippets/tree/master/c%2B%2B-mode&quot;&gt;&lt;em&gt;this&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;solarized-color-theme&quot;&gt;7 Solarized Color Theme&lt;/h2&gt;
-
-&lt;p&gt;“Black-White” color theme is not suitable for long-time watching, try &lt;a href=&quot;https://github.com/sellout/emacs-color-theme-solarized&quot;&gt;&lt;em&gt;this&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;save-desktop&quot;&gt;8 Save desktop&lt;/h2&gt;
-
-&lt;p&gt;insert the following code into &lt;code&gt;.emacs&lt;/code&gt; (MUST be at the END of the file):&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;desktop)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;desktop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;multi-shell&quot;&gt;9 Multi-shell&lt;/h2&gt;
-
-&lt;p&gt;I think the “shell” is the better than “multi-term”, “eshell”. But by default, one can only have one “shell”. The reason is that the buffer’s name is unique (always “&lt;em&gt;shell&lt;/em&gt;”). If we change the shell’s name everytime after we created it. Then we can get multiple shells:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shellnumber&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newshell&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interactive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;progn&lt;/span&gt; 
-            &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rename&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;concat&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shellnumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shellnumber&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shellnumber&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;\C-x.&amp;quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;newshell)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;auto-kill-completions-buffers&quot;&gt;10 “Auto-kill” &lt;code&gt;*Completions*&lt;/code&gt; buffers&lt;/h2&gt;
-
-&lt;p&gt;The &lt;code&gt;*Completions*&lt;/code&gt; buffers can be annoying sometime, using following code can “auto-kill” them after openning a file or after commiting a command in shell:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
-&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;openning&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hook&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;minibuffer-exit-hook &lt;/span&gt;
-      &lt;span class=&quot;s&quot;&gt;&amp;#39;(lambda ()&lt;/span&gt;
-         &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;*Completions*&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-           &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kill&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shell&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;defun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optional&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                                                                
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interactive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                                                                                                
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dolist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;win&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;                                                                                  
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;win&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;*Completions*&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                                          
-      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;win&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                                                                                      
-      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kill&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;*Completions*&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;                                                                          
-  &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                                                                                                      
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hook&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;comint-preoutput-filter-functions &amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;jump-to-previous-window&quot;&gt;11 Jump to previous window&lt;/h2&gt;
-
-&lt;p&gt;I use &lt;code&gt;C-x p&lt;/code&gt; to jump to previous window:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt; 
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kbd&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;C-x p&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;(lambda () (interactive) (other-window -1)))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;python-completion&quot;&gt;12 Python completion&lt;/h2&gt;
-&lt;p&gt;For python completion, I found &lt;a href=&quot;http://tkf.github.io/emacs-jedi/latest/&quot;&gt;this one&lt;/a&gt; is quite good.&lt;/p&gt;
+&lt;h3&gt; Highlights &lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt; Implemented an efficient time series segmentation algorithm based on &lt;a href=&quot;http://users.iems.northwestern.edu/~nocedal/lbfgsb.html&quot;&gt;Lbfgsb fortran routine&lt;/a&gt; (c++ fortran mixed programming)&lt;/li&gt;
+    &lt;li&gt; Crawled millions of YouTube viewcount history (based on &lt;a href=&quot;https://github.com/yuhonglin/YTCrawl&quot;&gt;YTCrawl&lt;/a&gt;) &lt;/li&gt;
+    &lt;li&gt; Many social insights &lt;/li&gt;
+&lt;/ul&gt;
 </description>
-				<pubDate>Wed, 05 Jun 2013 05:10:15 +1000</pubDate>
-				<link>http://yuhonglin.github.io/2013/06/05/tips-for-emacs.html</link>
-				<guid isPermaLink="true">http://yuhonglin.github.io/2013/06/05/tips-for-emacs.html</guid>
+				<pubDate>Thu, 04 Oct 2012 06:03:02 +1000</pubDate>
+				<link>/2012/10/04/viewcount-phase.html</link>
+				<guid isPermaLink="true">/2012/10/04/viewcount-phase.html</guid>
 			</item>
 		
 	</channel>
