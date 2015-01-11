@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<! -- header.html -->
+<meta charset="utf-8">
+<!-- mathjax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<title>Predict YouTube Video Popularity with Twitter's Feed</title>
+
+<meta name="author" content="Honglin">
+
+<!-- Enable responsive viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+ <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le styles -->
+<link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
+<link href="/assets/css/style.css" rel="stylesheet">
+
+<!-- Le fav and touch icons -->
+<!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+
+ <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+
+<! -- header.html end -->
+
+
+   <body>
+   		<nav class="navbar navbar-default visible-xs" role="navigation">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			
+			<a type="button" class="navbar-toggle nav-link" href="http://github.com/yuhonglin">
+		      <i class="fa fa-github"></i>
+		    </a>
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="http://twitter.com/yuhonglin1986">
+		      <i class="fa fa-twitter"></i>
+		    </a>
+		    
+		    
+		    <a type="button" class="navbar-toggle nav-link" href="mailto:yuhonglin1986@gmail.com">
+		      <i class="fa fa-envelope"></i>
+		    </a>
+		    
+		    <a class="navbar-brand" href="/">
+			<img src="http://www.gravatar.com/avatar/d5585155115642b123d2d3418809f425" class="img-circle" />
+			Honglin Yu
+		    </a>		    
+		  </div>
+
+		  
+  		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			    <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+			    <li><a href="/project/"><i class="fa fa-folder"></i> Projects</a></li>
+			    <li><a href="/publication.html"><i class="fa fa-tags"></i>Publication</a></li>
+			    <li><a href="/assets/cv/CV_Honglin.pdf"><i class="fa fa-tags"></i>CV</a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</nav>
+
+
+       <!-- nav-menu-dropdown -->
+       <div class="btn-group hidden-xs" id="nav-menu">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="/project/"><i class="fa fa-folder"></i> Projects</a></li>
+	    <li><a href="/publication.html"><i class="fa fa-tags"></i>Publication</a></li>
+	    <li><a href="/assets/cv/CV_Honglin.pdf"><i class="fa fa-tags"></i>CV</a></li>
+              <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+          </ul>
+       </div>
+		<div class="col-sm-3 sidebar hidden-xs">
+			<! -- sidebar.html -->
+
+<header class="sidebar-header" role="banner">
+	<a href="/">
+		<img src="http://www.gravatar.com/avatar/d5585155115642b123d2d3418809f425?s=150" class="img-circle" />
+	</a>
+	<h3 class="title">
+        <a href="/">Honglin Yu</a>
+    </h3>
+</header>
+
+
+
+
+<nav class="main-nav">
+    <ul>
+	<li class="nav-item"><a href="/index.html"></i> Home </a></li>
+	<li class="nav-item"><a href="/project/"></i> Project </a></li>
+	<li class="nav-item"><a href="/publication.html">Publication </a></li>
+	<li class="nav-item "><a href="/assets/cv/CV_Honglin.pdf"> CV </a></li>
+    </ul>
+</nav>
+
+
+
+
+<div id="contact-list" class="text-center">
+	<ul class="list-unstyled list-inline">
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://github.com/yuhonglin">
+				<i class="fa fa-github-alt fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="https://twitter.com/yuhonglin1986">
+				<i class="fa fa-twitter fa-lg"></i>
+			</a>
+		</li>
+		
+		
+		<li>
+			<a class="btn btn-default btn-sm" href="mailto:yuhonglin1986@gmail.com">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+		</li>
+		
+	</ul>
+	<ul id="contact-list-secondary" class="list-unstyled list-inline">
+		
+		
+	</ul>
+</div>	
+
+
+<! -- sidebar.html end -->
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3">
+			<article>
+	<div class="page-header">
+	  <h1>Predict YouTube Video Popularity with Twitter's Feed </h1>
+	</div>
+
+	<div class="col-sm-10">
+	 <!-- <span class="post-date"> -->
+	 <!--    -->
+	 <!--   October  -->
+	 <!--   2nd, -->
+	 <!--      -->
+	 <!--   2013 -->
+	 <!-- </span> -->
+	    <div class="article_body">
+		
+
+<p>by <a ref="yuhonglin.github.io">Honglin Yu</a>, <a ref="http://users.cecs.anu.edu.au/~xlx/">Lexing Xie</a> and <a href="http://users.cecs.anu.edu.au/~ssanner/">Scott Sanner</a></p>
+
+<h3> Motivation </h3>
+<ul>
+    <li> Online social networks are far not isolated islands. Understanding their interaction has both commercial and research values.</li>
+    <li> With the help of external information, we can better predict YouTube video popularity. </li>
+    <li> Treating viewcount changes as a measure, we can understand what kinds of tweeting patterns truely indicate the popularity of things mentioned in tweets.</li>
+</ul>
+
+<figure class="centeredImage">
+    <img src="/assets/img/twitter2youtube.png" />
+    <figcaption>Fig.1 Example of five tweets mentioning one YouTube video and the two questions we try to answer.</figcaption>
+</figure>
+
+<h3> Problem Setup </h3>
+<p>We proposed two prediction problems which are mission impossible without external information:</p>
+<ul>
+    <li> Predict videos' viewcount right after uploading (<div class="scfont"> Early </div>) </li>
+    <li> Predict whether videos' viewcount suddenly increase (<div class="scfont"> Jump </div>) </li>
+</ul>
+
+<h3> Result Highlights (<a href="http://cantabile.anu.edu.au/yt/demo/">Demo</a>) </h3>
+
+<p>Here are two examples of showing clear correlation between tweets pulses and viewcount increases. For more details about our results (i.e. performances of each features), please look at our <a href="/assets/posters/mm14_poster.pdf">poster</a> or <a href="http://users.cecs.anu.edu.au/~xlx/papers/acmmm14.pdf">paper</a>.</p>
+
+<div class="centeredimage">
+        <img class="horizon-align-2" src="/assets/img/yt_example_jump.png" />
+        <img class="horizon-align-2" src="/assets/img/yt_example_early.png" />
+	<figcaption>Fig.2 Left: A video having less than 9000 views in its first 3 months, and then gaining 1.2 million views within 15 days. Right: A video with a few dozen Twitter mentions and nearly 200,000 views in its first 15 days.</figcaption>
+</div>
+
+<h3> Twitter Features Highlights </h3>
+<ul>
+    <li> User graph features: degree, pagerank and hub/authority scores computed from a Twitter user graph of  41.7 million nodes and 1.47 billion edges. </li>
+    <li> User behavior features: the frequencies of their usage and engagement of hashtag, retweeting etc. extracted from 476 million tweets. </li>
+</ul>
+
+<p><figure class="centeredImage">
+    <img src="/assets/img/flow_yt.png" id="flow-yt" />
+    <figcaption>Fig.3 Working flow of the system.</figcaption>
+</figure></p>
+
+<h3> Software Highlights </h3>
+<ul>
+    <li> <a href="https://github.com/yuhonglin/YTCrawl">YTcrawl</a> : a powerful YouTube viewcount history crawler. </li>
+    <li> Programs (in C++) to efficiently compute centrality scores (mainstream tools like NetworkX or iGraph do not work due to the huge size of the graph). </li>
+    <li> Various programs/scripts to efficiently do feature engineering. </li>
+</ul>
+
+<h3> Conclusions </h3>
+<ul>
+    <li> Our work confirms that Twitter information can be effectively used to predict video popularity on YouTube. </li>
+    <li> Twitter user features associated with tweeting activities are more informative than graph features. Having a diverse range of users and associated tweeting activities is
+more informative than the total or average volume of activity of these users.</li>
+</ul>
+
+<h3> Posters </h3>
+<p>For more details, please see the <a href="/assets/posters/mm14_poster.pdf">poster</a>.</p>
+
+	    </div>
+
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#YouTube video-ref">
+					YouTube video <span>(2)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#popularity prediction-ref">
+					popularity prediction <span>(2)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#cross domain analysis-ref">
+					cross domain analysis <span>(2)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="http://yuhonglin.github.io/2012/10/04/viewcount-phase.html" title="Exploring Phases of YouTube Video Popularity Evolution">&larr; Previous</a></li>
+		  
+		  
+		  <li class="next"><a href="http://yuhonglin.github.io/2014/08/31/visual-meme-sequence-analysis.html" title="Visual Meme Sequence Analysis on YouTube (Video Remix Analysis)">Next &rarr;</a></li>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
+</article>
+<div class="clearfix"></div>
+
+
+		</div>
+	<div class="col-sm-9 col-sm-offset-3">
+	  <!-- footer.html -->
+<footer>
+ <hr/>
+ <p>
+ 	&copy; 2015 Honglin with Jekyll. Inspired by <a href="https://github.com/dbtek/dbyll">dbyll</a> by dbtek.
+ </p>
+</footer>
+
+<!-- footer.html end -->
+
+	</div>
+
+    
+	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/app.js"></script>
+	
+   </body>
+
+</html>
+
+
