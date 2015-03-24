@@ -7,65 +7,25 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Visual Meme Sequence Analysis on YouTube (Video Remix Analysis)</title>
+				<title>The Lifecyle of a Youtube Video: Phases, Content and Popularity</title>
 				<description>&lt;blockquote&gt;
-  &lt;div class=&quot;scfont&quot;&gt;Excerpt:&lt;/div&gt;
-  &lt;p&gt;Mining visual meme sequences from large number of videos&lt;/p&gt;
-
-  &lt;p&gt;&lt;img src=&quot;/assets/img/flow.png&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;This is an on-going work so I only list some general highlights for now.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
 
-&lt;p&gt;by &lt;a ref=&quot;yuhonglin.github.io&quot;&gt;Honglin Yu&lt;/a&gt; and &lt;a ref=&quot;http://users.cecs.anu.edu.au/~xlx/&quot;&gt;Lexing Xie&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;by &lt;a ref=&quot;yuhonglin.github.io&quot;&gt;Honglin Yu&lt;/a&gt;, &lt;a ref=&quot;http://users.cecs.anu.edu.au/~xlx/&quot;&gt;Lexing Xie&lt;/a&gt; and &lt;a href=&quot;http://users.cecs.anu.edu.au/~ssanner/&quot;&gt;Scott Sanner&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3&gt; Motivation &lt;/h3&gt;
-&lt;p&gt;Many YouTube videos are &lt;code&gt;remix videos&lt;/code&gt; which consist of &lt;code&gt;shots&lt;/code&gt; copied from other videos. Former work built system trying to find out duplicate shots in large number of videos. This work aims to further take the association rules and orders of shots into consideration. The motivation of this work are,&lt;/p&gt;
+&lt;h3&gt; Highlights &lt;/h3&gt;
 &lt;ul&gt;
-    &lt;li&gt; &quot;Order&quot; of shots is crucially important for video making (see &lt;a href=&quot;http://en.wikipedia.org/wiki/Montage_%28filmmaking%29&quot;&gt;Montage&lt;/a&gt;, &lt;a href=&quot;http://en.wikipedia.org/wiki/Kuleshov_Effect&quot;&gt;Kuleshov Effect&lt;/a&gt;) &lt;/li&gt;
-    &lt;li&gt; Enable viral content analysis at shot sequence level  &lt;/li&gt;
-    &lt;li&gt; Try to understand human video editing preference, w.r.t. different topics &lt;/li&gt;
+    &lt;li&gt; Implemented an efficient time series segmentation algorithm based on &lt;a href=&quot;http://users.iems.northwestern.edu/~nocedal/lbfgsb.html&quot;&gt;Lbfgsb fortran routine&lt;/a&gt; (c++ fortran mixed programming)&lt;/li&gt;
+    &lt;li&gt; Crawled millions of YouTube viewcount history (based on &lt;a href=&quot;https://github.com/yuhonglin/YTCrawl&quot;&gt;YTCrawl&lt;/a&gt;) &lt;/li&gt;
+    &lt;li&gt; Many social insights &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3&gt; System Overview &lt;/h3&gt;
-&lt;p&gt;We have built the following system to find visual meme sequences.&lt;/p&gt;
-&lt;p&gt;&lt;figure&gt;
-    &lt;img src=&quot;/assets/img/flow.png&quot; /&gt;
-    &lt;figcaption&gt;Fig.1 Working flow of the system&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;/p&gt;
-
-&lt;h3&gt; Result &lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;/assets/img/iranianelection.png&quot;&gt;Here&lt;/a&gt; is an example of the mining results (22.5MB). Every row is the shots for each video in chronological order.
-And the black lines connect the visual memes we found. (These videos are about &lt;a href=&quot;http://en.wikipedia.org/wiki/2009%E2%80%9310_Iranian_election_protests&quot;&gt;2009 Iranian election protests&lt;/a&gt;)&lt;/p&gt;
-
-&lt;h3&gt; Software Developed &lt;/h3&gt;
-&lt;ul&gt;
-    &lt;li&gt;
-	&lt;a href=&quot;https://github.com/yuhonglin/shotdetect&quot;&gt;ShotDetect&lt;/a&gt;: detect shots of videos
-	&lt;ul&gt;
-	    &lt;li&gt; It is fast, deveploped by C++ and is directly based on libavcodec and openCV etc. &lt;/li&gt;
-	    &lt;li&gt; It can deal with all formats of online videos (thanks to libavcodec etc.) &lt;/li&gt;
-	    &lt;li&gt; The performace is quite good (F1 score &amp;gt; 80% from a test on 400 shots) &lt;/li&gt;
-	&lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-	&lt;a href=&quot;https://github.com/yuhonglin/PySW&quot;&gt;PySW&lt;/a&gt;: implement Smith-Waterman Algorithms for sub-sequence matching (written in C++, wrapped in python)
-    &lt;/li&gt;
-    &lt;li&gt;
-	Various powerful parallel crawling and preprocessing programs
-	&lt;ul&gt;
-	    &lt;li&gt; Deployed on &lt;a href=&quot;http://nci.org.au/&quot;&gt; The National Computational Infrastructure &lt;/a&gt; &lt;/li&gt;
-	    &lt;li&gt; Processed &amp;gt; 15TB data &lt;/li&gt;
-	&lt;/ul&gt;	
-    &lt;/li&gt;    
-&lt;/ul&gt;
-
-&lt;h3&gt; Poster &lt;/h3&gt;
-&lt;p&gt;Download from &lt;a href=&quot;http://cecs.anu.edu.au/files/posters/2012/u4975468.pdf&quot;&gt;here&lt;/a&gt; (12.2MB).&lt;/p&gt;
 </description>
-				<pubDate>Sun, 31 Aug 2014 05:10:15 +1000</pubDate>
-				<link>/2014/08/31/visual-meme-sequence-analysis.html</link>
-				<guid isPermaLink="true">/2014/08/31/visual-meme-sequence-analysis.html</guid>
+				<pubDate>Sat, 04 Oct 2014 06:03:02 +1000</pubDate>
+				<link>/2014/10/04/viewcount-phase.html</link>
+				<guid isPermaLink="true">/2014/10/04/viewcount-phase.html</guid>
 			</item>
 		
 			<item>
@@ -143,25 +103,65 @@ more informative than the total or average volume of activity of these users.&lt
 			</item>
 		
 			<item>
-				<title>Exploring Phases of YouTube Video Popularity Evolution</title>
+				<title>Visual Meme Sequence Analysis on YouTube (Video Remix Analysis)</title>
 				<description>&lt;blockquote&gt;
-  &lt;p&gt;This is an on-going work so I only list some general highlights for now.&lt;/p&gt;
+  &lt;div class=&quot;scfont&quot;&gt;Excerpt:&lt;/div&gt;
+  &lt;p&gt;Mining visual meme sequences from large number of videos&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/assets/img/flow.png&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
 
-&lt;p&gt;by &lt;a ref=&quot;yuhonglin.github.io&quot;&gt;Honglin Yu&lt;/a&gt;, &lt;a ref=&quot;http://users.cecs.anu.edu.au/~xlx/&quot;&gt;Lexing Xie&lt;/a&gt; and &lt;a href=&quot;http://users.cecs.anu.edu.au/~ssanner/&quot;&gt;Scott Sanner&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;by &lt;a ref=&quot;yuhonglin.github.io&quot;&gt;Honglin Yu&lt;/a&gt; and &lt;a ref=&quot;http://users.cecs.anu.edu.au/~xlx/&quot;&gt;Lexing Xie&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3&gt; Highlights &lt;/h3&gt;
+&lt;h3&gt; Motivation &lt;/h3&gt;
+&lt;p&gt;Many YouTube videos are &lt;code&gt;remix videos&lt;/code&gt; which consist of &lt;code&gt;shots&lt;/code&gt; copied from other videos. Former work built system trying to find out duplicate shots in large number of videos. This work aims to further take the association rules and orders of shots into consideration. The motivation of this work are,&lt;/p&gt;
 &lt;ul&gt;
-    &lt;li&gt; Implemented an efficient time series segmentation algorithm based on &lt;a href=&quot;http://users.iems.northwestern.edu/~nocedal/lbfgsb.html&quot;&gt;Lbfgsb fortran routine&lt;/a&gt; (c++ fortran mixed programming)&lt;/li&gt;
-    &lt;li&gt; Crawled millions of YouTube viewcount history (based on &lt;a href=&quot;https://github.com/yuhonglin/YTCrawl&quot;&gt;YTCrawl&lt;/a&gt;) &lt;/li&gt;
-    &lt;li&gt; Many social insights &lt;/li&gt;
+    &lt;li&gt; &quot;Order&quot; of shots is crucially important for video making (see &lt;a href=&quot;http://en.wikipedia.org/wiki/Montage_%28filmmaking%29&quot;&gt;Montage&lt;/a&gt;, &lt;a href=&quot;http://en.wikipedia.org/wiki/Kuleshov_Effect&quot;&gt;Kuleshov Effect&lt;/a&gt;) &lt;/li&gt;
+    &lt;li&gt; Enable viral content analysis at shot sequence level  &lt;/li&gt;
+    &lt;li&gt; Try to understand human video editing preference, w.r.t. different topics &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3&gt; System Overview &lt;/h3&gt;
+&lt;p&gt;We have built the following system to find visual meme sequences.&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+    &lt;img src=&quot;/assets/img/flow.png&quot; /&gt;
+    &lt;figcaption&gt;Fig.1 Working flow of the system&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+
+&lt;h3&gt; Result &lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/img/iranianelection.png&quot;&gt;Here&lt;/a&gt; is an example of the mining results (22.5MB). Every row is the shots for each video in chronological order.
+And the black lines connect the visual memes we found. (These videos are about &lt;a href=&quot;http://en.wikipedia.org/wiki/2009%E2%80%9310_Iranian_election_protests&quot;&gt;2009 Iranian election protests&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h3&gt; Software Developed &lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;
+	&lt;a href=&quot;https://github.com/yuhonglin/shotdetect&quot;&gt;ShotDetect&lt;/a&gt;: detect shots of videos
+	&lt;ul&gt;
+	    &lt;li&gt; It is fast, deveploped by C++ and is directly based on libavcodec and openCV etc. &lt;/li&gt;
+	    &lt;li&gt; It can deal with all formats of online videos (thanks to libavcodec etc.) &lt;/li&gt;
+	    &lt;li&gt; The performace is quite good (F1 score &amp;gt; 80% from a test on 400 shots) &lt;/li&gt;
+	&lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+	&lt;a href=&quot;https://github.com/yuhonglin/PySW&quot;&gt;PySW&lt;/a&gt;: implement Smith-Waterman Algorithms for sub-sequence matching (written in C++, wrapped in python)
+    &lt;/li&gt;
+    &lt;li&gt;
+	Various powerful parallel crawling and preprocessing programs
+	&lt;ul&gt;
+	    &lt;li&gt; Deployed on &lt;a href=&quot;http://nci.org.au/&quot;&gt; The National Computational Infrastructure &lt;/a&gt; &lt;/li&gt;
+	    &lt;li&gt; Processed &amp;gt; 15TB data &lt;/li&gt;
+	&lt;/ul&gt;	
+    &lt;/li&gt;    
+&lt;/ul&gt;
+
+&lt;h3&gt; Poster &lt;/h3&gt;
+&lt;p&gt;Download from &lt;a href=&quot;http://cecs.anu.edu.au/files/posters/2012/u4975468.pdf&quot;&gt;here&lt;/a&gt; (12.2MB).&lt;/p&gt;
 </description>
-				<pubDate>Thu, 04 Oct 2012 06:03:02 +1000</pubDate>
-				<link>/2012/10/04/viewcount-phase.html</link>
-				<guid isPermaLink="true">/2012/10/04/viewcount-phase.html</guid>
+				<pubDate>Fri, 31 Aug 2012 05:10:15 +1000</pubDate>
+				<link>/2012/08/31/visual-meme-sequence-analysis.html</link>
+				<guid isPermaLink="true">/2012/08/31/visual-meme-sequence-analysis.html</guid>
 			</item>
 		
 	</channel>

@@ -6,7 +6,7 @@
 <!-- mathjax -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-<title>Visual Meme Sequence Analysis on YouTube (Video Remix Analysis)</title>
+<title>The Lifecyle of a Youtube Video: Phases, Content and Popularity</title>
 
 <meta name="author" content="Honglin">
 
@@ -160,65 +160,28 @@
 		<div class="col-sm-9 col-sm-offset-3">
 			<article>
 	<div class="page-header">
-	  <h1>Visual Meme Sequence Analysis on YouTube (Video Remix Analysis) </h1>
+	  <h1>The Lifecyle of a Youtube Video: Phases, Content and Popularity </h1>
 	</div>
 
 	<div class="col-sm-10">
 	 <!-- <span class="post-date"> -->
 	 <!--    -->
-	 <!--   August  -->
-	 <!--   31st, -->
-	 <!--      -->
+	 <!--   October  -->
+	 <!--   4th, -->
+	 <!--    -->
 	 <!--   2014 -->
 	 <!-- </span> -->
 	    <div class="article_body">
 		
 
-<p>by <a ref="yuhonglin.github.io">Honglin Yu</a> and <a ref="http://users.cecs.anu.edu.au/~xlx/">Lexing Xie</a></p>
+<p>by <a ref="yuhonglin.github.io">Honglin Yu</a>, <a ref="http://users.cecs.anu.edu.au/~xlx/">Lexing Xie</a> and <a href="http://users.cecs.anu.edu.au/~ssanner/">Scott Sanner</a></p>
 
-<h3> Motivation </h3>
-<p>Many YouTube videos are <code>remix videos</code> which consist of <code>shots</code> copied from other videos. Former work built system trying to find out duplicate shots in large number of videos. This work aims to further take the association rules and orders of shots into consideration. The motivation of this work are,</p>
+<h3> Highlights </h3>
 <ul>
-    <li> "Order" of shots is crucially important for video making (see <a href="http://en.wikipedia.org/wiki/Montage_%28filmmaking%29">Montage</a>, <a href="http://en.wikipedia.org/wiki/Kuleshov_Effect">Kuleshov Effect</a>) </li>
-    <li> Enable viral content analysis at shot sequence level  </li>
-    <li> Try to understand human video editing preference, w.r.t. different topics </li>
+    <li> Implemented an efficient time series segmentation algorithm based on <a href="http://users.iems.northwestern.edu/~nocedal/lbfgsb.html">Lbfgsb fortran routine</a> (c++ fortran mixed programming)</li>
+    <li> Crawled millions of YouTube viewcount history (based on <a href="https://github.com/yuhonglin/YTCrawl">YTCrawl</a>) </li>
+    <li> Many social insights </li>
 </ul>
-
-<h3> System Overview </h3>
-<p>We have built the following system to find visual meme sequences.</p>
-<p><figure>
-    <img src="/assets/img/flow.png" />
-    <figcaption>Fig.1 Working flow of the system</figcaption>
-</figure></p>
-
-<h3> Result </h3>
-<p><a href="/assets/img/iranianelection.png">Here</a> is an example of the mining results (22.5MB). Every row is the shots for each video in chronological order.
-And the black lines connect the visual memes we found. (These videos are about <a href="http://en.wikipedia.org/wiki/2009%E2%80%9310_Iranian_election_protests">2009 Iranian election protests</a>)</p>
-
-<h3> Software Developed </h3>
-<ul>
-    <li>
-	<a href="https://github.com/yuhonglin/shotdetect">ShotDetect</a>: detect shots of videos
-	<ul>
-	    <li> It is fast, deveploped by C++ and is directly based on libavcodec and openCV etc. </li>
-	    <li> It can deal with all formats of online videos (thanks to libavcodec etc.) </li>
-	    <li> The performace is quite good (F1 score &gt; 80% from a test on 400 shots) </li>
-	</ul>
-    </li>
-    <li>
-	<a href="https://github.com/yuhonglin/PySW">PySW</a>: implement Smith-Waterman Algorithms for sub-sequence matching (written in C++, wrapped in python)
-    </li>
-    <li>
-	Various powerful parallel crawling and preprocessing programs
-	<ul>
-	    <li> Deployed on <a href="http://nci.org.au/"> The National Computational Infrastructure </a> </li>
-	    <li> Processed &gt; 15TB data </li>
-	</ul>	
-    </li>    
-</ul>
-
-<h3> Poster </h3>
-<p>Download from <a href="http://cecs.anu.edu.au/files/posters/2012/u4975468.pdf">here</a> (12.2MB).</p>
 
 	    </div>
 
@@ -231,36 +194,22 @@ And the black lines connect the visual memes we found. (These videos are about <
 		  
 			 
 				<li>
-					<a href="/tags.html#Video shot detection-ref">
-					Video shot detection <span>(1)</span>
+					<a href="/tags.html#YouTube video-ref">
+					YouTube video <span>(2)</span>
 					,
 					</a>
 				</li>
 			 
 				<li>
-					<a href="/tags.html#Frequent item set mining-ref">
-					Frequent item set mining <span>(1)</span>
+					<a href="/tags.html#popularity prediction-ref">
+					popularity prediction <span>(2)</span>
 					,
 					</a>
 				</li>
 			 
 				<li>
-					<a href="/tags.html#openCV-ref">
-					openCV <span>(1)</span>
-					,
-					</a>
-				</li>
-			 
-				<li>
-					<a href="/tags.html#libavcodec-ref">
-					libavcodec <span>(1)</span>
-					,
-					</a>
-				</li>
-			 
-				<li>
-					<a href="/tags.html#Smith-Waterman algorithm-ref">
-					Smith-Waterman algorithm <span>(1)</span>
+					<a href="/tags.html#cross domain analysis-ref">
+					cross domain analysis <span>(2)</span>
 					
 					</a>
 				</li>
