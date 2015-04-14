@@ -9,19 +9,22 @@
 			<item>
 				<title>The Lifecyle of a Youtube Video: Phases, Content and Popularity</title>
 				<description>&lt;blockquote&gt;
-  &lt;p&gt;This is an on-going work so I only list some general highlights for now.&lt;/p&gt;
+  &lt;p&gt;Use time series segmentation method to explore YouTube viewcount phases and improve prediction&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
 
-&lt;p&gt;by &lt;a ref=&quot;yuhonglin.github.io&quot;&gt;Honglin Yu&lt;/a&gt;, &lt;a ref=&quot;http://users.cecs.anu.edu.au/~xlx/&quot;&gt;Lexing Xie&lt;/a&gt; and &lt;a href=&quot;http://users.cecs.anu.edu.au/~ssanner/&quot;&gt;Scott Sanner&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;by &lt;a href=&quot;yuhonglin.github.io&quot;&gt;Honglin Yu&lt;/a&gt;, &lt;a href=&quot;http://users.cecs.anu.edu.au/~xlx/&quot;&gt;Lexing Xie&lt;/a&gt; and &lt;a href=&quot;http://users.cecs.anu.edu.au/~ssanner/&quot;&gt;Scott Sanner&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3&gt; Highlights &lt;/h3&gt;
 &lt;ul&gt;
-    &lt;li&gt; Implemented an efficient time series segmentation algorithm based on &lt;a href=&quot;http://users.iems.northwestern.edu/~nocedal/lbfgsb.html&quot;&gt;Lbfgsb fortran routine&lt;/a&gt; (c++ fortran mixed programming)&lt;/li&gt;
+    &lt;li&gt; Implemented an efficient time series segmentation algorithm &lt;a href=&quot;https://github.com/yuhonglin/segfit&quot;&gt;segfit&lt;/a&gt; &lt;/li&gt;
     &lt;li&gt; Crawled millions of YouTube viewcount history (based on &lt;a href=&quot;https://github.com/yuhonglin/YTCrawl&quot;&gt;YTCrawl&lt;/a&gt;) &lt;/li&gt;
     &lt;li&gt; Many social insights &lt;/li&gt;
-&lt;/ul&gt;
+	&lt;li&gt; Ground truth labelling &lt;a href=&quot;http://cantabile.anu.edu.au/segfit/label/&quot;&gt;website:&lt;a&gt;  
+
+
+&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 </description>
 				<pubDate>Sat, 04 Oct 2014 06:03:02 +1000</pubDate>
 				<link>/2014/10/04/viewcount-phase.html</link>
