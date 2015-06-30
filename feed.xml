@@ -7,11 +7,12 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>The Lifecyle of a Youtube Video: Phases, Content and Popularity</title>
+				<title>The Lifecycle of a Youtube Video: Phases, Content and Popularity</title>
 				<description>&lt;blockquote&gt;
+  &lt;div class=&quot;scfont&quot;&gt;Excerpt:&lt;/div&gt;
   &lt;p&gt;Use time series segmentation method to explore YouTube viewcount phases and improve prediction&lt;/p&gt;
 
-  &lt;p&gt;&lt;img class=&quot;excerptimage&quot; src=&quot;/assets/img/complexityofviewcount.png&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/2014/10/04/viewcount-phase.html&quot;&gt; &lt;img class=&quot;excerptimage&quot; src=&quot;/assets/img/complexityofviewcount.png&quot; /&gt; &lt;a&gt;&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
@@ -39,7 +40,7 @@
 				<description>&lt;blockquote&gt;
   &lt;div class=&quot;scfont&quot;&gt;Excerpt:&lt;/div&gt;
   &lt;p&gt;We predict viewcount &lt;em&gt;jumps&lt;/em&gt; and &lt;em&gt;early&lt;/em&gt; viewcounts of YouTube videos, which are mission impossible for former methods (without external information).
-&lt;img class=&quot;excerptimage&quot; src=&quot;/assets/img/twitter2youtube_lx.png&quot; /&gt;&lt;/p&gt;
+&lt;a href=&quot;/2013/10/02/youtube-and-twitter.html&quot;&gt; &lt;img class=&quot;excerptimage&quot; src=&quot;/assets/img/twitter2youtube_lx.png&quot; /&gt; &lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
@@ -114,7 +115,7 @@ more informative than the total or average volume of activity of these users.&lt
   &lt;div class=&quot;scfont&quot;&gt;Excerpt:&lt;/div&gt;
   &lt;p&gt;Mining visual meme sequences from large number of videos&lt;/p&gt;
 
-  &lt;p&gt;&lt;img src=&quot;/assets/img/flow.png&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;/2012/08/31/visual-meme-sequence-analysis.html&quot;&gt; &lt;img src=&quot;/assets/img/flow.png&quot; /&gt; &lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;!--more--&gt;
