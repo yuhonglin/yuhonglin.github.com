@@ -19,6 +19,9 @@
 <![endif]-->
 
 <!-- Le styles -->
+<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/app.js"></script>
+
 <link href="/assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <link href="/assets/resources/syntax/syntax.css" rel="stylesheet">
@@ -34,6 +37,27 @@
 
  <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
+
+
+  
+  <link rel="stylesheet" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/assets/css/chart.css" media="screen" type="text/css">
+  
+
+
+
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js' type="text/javascript"></script>
+  
+  <script src='https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.min.js' type="text/javascript"></script>
+  
+  <script src='/assets/js/plotSegFitResult.js' type="text/javascript"></script>
+  
+
+
+
+ 
 <! -- header.html end -->
 
 
@@ -182,10 +206,44 @@
     <li> Crawled millions of YouTube viewcount history (based on <a href="https://github.com/yuhonglin/YTCrawl">YTCrawl</a>) </li>
 	<li> Data used in paper can be found <a href="https://www.dropbox.com/s/4af3646w8omhago/data_released.tar.bz2?dl=0">here</a></li>
     <li> Many social insights </li>
-	<li> Ground truth labelling <a href="http://cantabile.anu.edu.au/segfit/label/">website:<a>  
+	<li> Ground truth labelling <a href="http://cantabile.anu.edu.au/segfit/label/">website:</a>  </li>
+</ul>
 
+<h3> Examples </h3>
 
-</a></a></li></ul>
+<ul>
+    <li> <span style="background-color: #3399FF; color: white">Blue curve</span> : daily viewcount of each video. </li>
+    <li> <span style="background-color: #8B0000; color: white">Red curves</span> : phases (segments) found. </li>
+</ul>
+
+<div class="container">
+	<div class="col-md-6 chartdiv" id="chart1"><a id="title1">1</a><svg class="chart"></svg></div>
+	<div class="col-md-6 chartdiv" id="chart2"><a id="title2">2</a><svg class="chart"></svg></div>
+	<div class="clearfix visible-block"></div>
+		
+	<div class="col-md-6 chartdiv" id="chart3"><a id="title3">3</a><svg class="chart"></svg></div>
+	<div class="col-md-6 chartdiv" id="chart4"><a id="title4">4</a><svg class="chart"></svg></div>
+
+	<div class="clearfix visible-md"></div>
+
+	<div class="col-md-6 chartdiv" id="chart5"><a id="title5">5</a><svg class="chart"></svg></div>
+	<div class="col-md-6 chartdiv" id="chart6"><a id="title6">6</a><svg class="chart"></svg></div>
+
+    <div class="clearfix visible-md"></div> 
+
+	<div class="col-md-6 chartdiv" id="chart7"><a id="title7">7</a><svg class="chart"></svg></div>
+	<div class="col-md-6 chartdiv" id="chart8"><a id="title8">8</a><svg class="chart"></svg></div>
+
+	<div class="clearfix visible-md"></div> 
+
+	<div class="col-md-6 chartdiv" id="chart9"><a id="title9">9</a><svg class="chart"></svg></div>
+	<div class="col-md-6 chartdiv" id="chart10"><a id="title10">10</a><svg class="chart"></svg></div>
+
+	<div class="clearfix visible-md"></div> 
+
+	<div class="col-md-6 chartdiv" id="chart11"><a id="title11">11</a><svg class="chart"></svg></div>
+	<div class="col-md-6 chartdiv" id="chart12"><a id="title12">12</a><svg class="chart"></svg></div>
+</div>
 
 	    </div>
 
@@ -257,11 +315,6 @@
 <!-- footer.html end -->
 
 	</div>
-
-    
-	<script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/assets/js/app.js"></script>
 	
    </body>
 

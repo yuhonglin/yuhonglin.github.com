@@ -25,10 +25,44 @@
     &lt;li&gt; Crawled millions of YouTube viewcount history (based on &lt;a href=&quot;https://github.com/yuhonglin/YTCrawl&quot;&gt;YTCrawl&lt;/a&gt;) &lt;/li&gt;
 	&lt;li&gt; Data used in paper can be found &lt;a href=&quot;https://www.dropbox.com/s/4af3646w8omhago/data_released.tar.bz2?dl=0&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt; Many social insights &lt;/li&gt;
-	&lt;li&gt; Ground truth labelling &lt;a href=&quot;http://cantabile.anu.edu.au/segfit/label/&quot;&gt;website:&lt;a&gt;  
+	&lt;li&gt; Ground truth labelling &lt;a href=&quot;http://cantabile.anu.edu.au/segfit/label/&quot;&gt;website:&lt;/a&gt;  &lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;h3&gt; Examples &lt;/h3&gt;
 
-&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;ul&gt;
+    &lt;li&gt; &lt;span style=&quot;background-color: #3399FF; color: white&quot;&gt;Blue curve&lt;/span&gt; : daily viewcount of each video. &lt;/li&gt;
+    &lt;li&gt; &lt;span style=&quot;background-color: #8B0000; color: white&quot;&gt;Red curves&lt;/span&gt; : phases (segments) found. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart1&quot;&gt;&lt;a id=&quot;title1&quot;&gt;1&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart2&quot;&gt;&lt;a id=&quot;title2&quot;&gt;2&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+	&lt;div class=&quot;clearfix visible-block&quot;&gt;&lt;/div&gt;
+		
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart3&quot;&gt;&lt;a id=&quot;title3&quot;&gt;3&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart4&quot;&gt;&lt;a id=&quot;title4&quot;&gt;4&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+
+	&lt;div class=&quot;clearfix visible-md&quot;&gt;&lt;/div&gt;
+
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart5&quot;&gt;&lt;a id=&quot;title5&quot;&gt;5&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart6&quot;&gt;&lt;a id=&quot;title6&quot;&gt;6&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+
+    &lt;div class=&quot;clearfix visible-md&quot;&gt;&lt;/div&gt; 
+
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart7&quot;&gt;&lt;a id=&quot;title7&quot;&gt;7&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart8&quot;&gt;&lt;a id=&quot;title8&quot;&gt;8&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+
+	&lt;div class=&quot;clearfix visible-md&quot;&gt;&lt;/div&gt; 
+
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart9&quot;&gt;&lt;a id=&quot;title9&quot;&gt;9&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart10&quot;&gt;&lt;a id=&quot;title10&quot;&gt;10&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+
+	&lt;div class=&quot;clearfix visible-md&quot;&gt;&lt;/div&gt; 
+
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart11&quot;&gt;&lt;a id=&quot;title11&quot;&gt;11&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+	&lt;div class=&quot;col-md-6 chartdiv&quot; id=&quot;chart12&quot;&gt;&lt;a id=&quot;title12&quot;&gt;12&lt;/a&gt;&lt;svg class=&quot;chart&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
+&lt;/div&gt;
 </description>
 				<pubDate>Sat, 04 Oct 2014 06:03:02 +1000</pubDate>
 				<link>/2014/10/04/viewcount-phase.html</link>
