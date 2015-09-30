@@ -25,7 +25,7 @@
     &lt;li&gt; Crawled millions of YouTube viewcount history (based on &lt;a href=&quot;https://github.com/yuhonglin/YTCrawl&quot;&gt;YTCrawl&lt;/a&gt;) &lt;/li&gt;
 	&lt;li&gt; Data used in paper can be found &lt;a href=&quot;https://www.dropbox.com/s/4af3646w8omhago/data_released.tar.bz2?dl=0&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt; Many social insights &lt;/li&gt;
-	&lt;li&gt; Ground truth labelling &lt;a href=&quot;http://cantabile.anu.edu.au/segfit/label/&quot;&gt;website.&lt;/a&gt;  &lt;/li&gt;
+	&lt;li&gt; Ground truth labelling &lt;a href=&quot;http://cantabile.anu.edu.au/segfit/label/&quot;&gt;website (occasionally down).&lt;/a&gt;  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt; Examples of viewcount phases&lt;/h3&gt;
